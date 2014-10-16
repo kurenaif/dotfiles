@@ -76,6 +76,8 @@ set whichwrap=b,s,h,l,<,>,[,]
 
 "--- <F6>  タイムスタンプを挿入してinsertモードへ移行 ----
 nmap <F6> <ESC>i<C-R>=strftime("%Y/%m/%d (%a) %H:%M")<CR><CR>
+"ESC二回でハイライト削除
+nnoremap <ESC><ESC> :nohlsearch<CR>
 
 
 "-------------------------------------------------------
@@ -103,7 +105,9 @@ au BufRead,BufNewFile *.md set filetype=markdown
 "switch設定
 "-------------------------------------------------------
 NeoBundle 'AndrewRadev/switch.vim'
-nnoremap <Space>m  :<C-u>Switch<CR>
+nnoremap + :call switch#Switch(g:variable_style_switch_definitions)<cr>
+nnoremap - :Switch<cr>
+
 
 "-------------------------------------------------------
 "vim-quickrun設定 (備考)原因不明のエラーにより動作不能、原因解明急ぐ 香り屋vimで動かないという報告あり
