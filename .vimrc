@@ -41,6 +41,7 @@ set noswapfile
 set list
 set listchars=tab:>\ 
 
+set tabstop=3
 set shiftwidth=3
 set hidden
 set number
@@ -340,3 +341,26 @@ let g:stargate#include_paths = {
 \	"/opt/ros/indigo/include/"
 \   ]
 \}
+
+"-------------------------------------------------------
+"vim-startify 最近開いたファイルの履歴
+"-------------------------------------------------------
+NeoBundle "mhinz/vim-startify"
+" startifyのヘッダー部分に表示する文字列を設定する(dateコマンドを実行して日付を設定している)
+let g:startify_custom_header =
+  \ map(split(system('date'), '\n'), '"   ". v:val') + ['','']
+" デフォルトだと、最近使ったファイルの先頭は数字なので、使用するアルファベットを指定
+let g:startify_custom_indices = ['f', 'g', 'h', 'r', 'i', 'o', 'b']
+" よく使うファイルをブックマークとして登録しておく
+let g:startify_bookmarks = [
+  \ '~/.vimrc',
+  \ '~/localrepos/blog/vac_20131215.md',
+  \ ]
+
+"-------------------------------------------------------
+"caw.vim コメントアウト関連
+"-------------------------------------------------------
+NeoBundle "tyru/caw.vim.git"
+" ,cで行の先頭にコメントをつけたり外したりできる
+nmap <Leader>c <Plug>(caw:i:toggle)
+vmap <Leader>c <Plug>(caw:i:toggle)
