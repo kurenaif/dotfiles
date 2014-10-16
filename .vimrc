@@ -102,7 +102,8 @@ au BufRead,BufNewFile *.md set filetype=markdown
 "-------------------------------------------------------
 "switch設定
 "-------------------------------------------------------
-"NeoBundle 'AndrewRadev/switch.vim'
+NeoBundle 'AndrewRadev/switch.vim'
+nnoremap <Space>m  :<C-u>Switch<CR>
 
 "-------------------------------------------------------
 "vim-quickrun設定 (備考)原因不明のエラーにより動作不能、原因解明急ぐ 香り屋vimで動かないという報告あり
@@ -354,7 +355,6 @@ let g:startify_custom_indices = ['f', 'g', 'h', 'r', 'i', 'o', 'b']
 " よく使うファイルをブックマークとして登録しておく
 let g:startify_bookmarks = [
   \ '~/.vimrc',
-  \ '~/localrepos/blog/vac_20131215.md',
   \ ]
 
 "-------------------------------------------------------
@@ -364,3 +364,17 @@ NeoBundle "tyru/caw.vim.git"
 " ,cで行の先頭にコメントをつけたり外したりできる
 nmap <Leader>c <Plug>(caw:i:toggle)
 vmap <Leader>c <Plug>(caw:i:toggle)
+
+"-------------------------------------------------------
+"Vim差分表示 http://deris.hatenablog.jp/entry/2013/12/15/235606
+"-------------------------------------------------------
+NeoBundle "mhinz/vim-signify"
+":SignifyToggleで差分表示
+" 次の差分箇所に移動
+nmap <Leader>gj <Plug>(signify-next-hunk)zz
+" 前の差分箇所に移動
+nmap <Leader>gk <Plug>(signify-prev-hunk)zz
+" 差分箇所をハイライト
+nmap <Leader>gh <Plug>(signify-toggle-highlight)
+" 差分表示をトグルする(:SignifyToggleコマンドと同じ)
+nmap <Leader>gt <Plug>(signify-toggle)
