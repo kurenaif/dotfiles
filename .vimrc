@@ -4,7 +4,7 @@ set nocompatible               " Be iMproved
 filetype off                   " Required!
 
 if has('vim_starting')
-  set runtimepath+=~/.vim/bundle/neobundle.vim/
+	set runtimepath+=~/.vim/bundle/neobundle.vim/
 endif
 
 call neobundle#begin(expand('~/.vim/bundle/'))
@@ -13,10 +13,10 @@ filetype plugin indent on     " Required!
 
 " Installation check.
 if neobundle#exists_not_installed_bundles()
-  echomsg 'Not installed bundles : ' .
-        \ string(neobundle#get_not_installed_bundle_names())
-  echomsg 'Please execute ":NeoBundleInstall" command.'
-  "finish
+	echomsg 'Not installed bundles : ' .
+				\ string(neobundle#get_not_installed_bundle_names())
+	echomsg 'Please execute ":NeoBundleInstall" command.'
+	"finish
 endif
 
 call neobundle#end()
@@ -60,8 +60,8 @@ set wildmenu
 set whichwrap=b,s,[,],<,>
 set backspace=indent,eol,start
 if &t_Co > 2 || has("gui_running")
-  syntax on
-  set hlsearch
+	syntax on
+	set hlsearch
 endif
 
 set printoptions=number:y
@@ -78,6 +78,8 @@ set whichwrap=b,s,h,l,<,>,[,]
 nmap <F6> <ESC>i<C-R>=strftime("%Y/%m/%d (%a) %H:%M")<CR><CR>
 "ESC二回でハイライト削除
 nnoremap <ESC><ESC> :nohlsearch<CR>
+"F5でQuickrun
+nmap <F5> <ESC>:QuickRun<CR>
 
 
 "-------------------------------------------------------
@@ -119,29 +121,29 @@ NeoBundle 'thinca/vim-quickrun'
 "-------------------------------------------------------
 NeoBundle 'The-NERD-tree'
 " http://kokukuma.blogspot.jp/2012/03/vim-nerdtree.html
- 
+
 " カーソルが外れているときは自動的にnerdtreeを隠す
 function! ExecuteNERDTree()
-"b:nerdstatus = 1 : NERDTree 表示中
-"b:nerdstatus = 2 : NERDTree 非表示中
- 
-if !exists('g:nerdstatus')
-execute 'NERDTree ./'
-let g:windowWidth = winwidth(winnr())
-let g:nerdtreebuf = bufnr('')
-let g:nerdstatus = 1
- 
-elseif g:nerdstatus == 1
-execute 'wincmd t'
-execute 'vertical resize' 0
-execute 'wincmd p'
-let g:nerdstatus = 2
-elseif g:nerdstatus == 2
-execute 'wincmd t'
-execute 'vertical resize' g:windowWidth
-let g:nerdstatus = 1
- 
-endif
+	"b:nerdstatus = 1 : NERDTree 表示中
+	"b:nerdstatus = 2 : NERDTree 非表示中
+
+	if !exists('g:nerdstatus')
+		execute 'NERDTree ./'
+		let g:windowWidth = winwidth(winnr())
+		let g:nerdtreebuf = bufnr('')
+		let g:nerdstatus = 1
+
+	elseif g:nerdstatus == 1
+		execute 'wincmd t'
+		execute 'vertical resize' 0
+		execute 'wincmd p'
+		let g:nerdstatus = 2
+	elseif g:nerdstatus == 2
+		execute 'wincmd t'
+		execute 'vertical resize' g:windowWidth
+		let g:nerdstatus = 1
+
+	endif
 endfunction
 noremap <c-e> :<c-u>:call ExecuteNERDTree()<cr>
 ""最後に残ったウィンドウがNERDTREEのみのときはvimを閉じる
@@ -207,6 +209,7 @@ nnoremap subp y:OverCommandLine<CR>%s!<C-r>=substitute(@0, '!', '\\!', 'g')<CR>!
 "neocomplache設定
 "-------------------------------------------------------
 NeoBundle 'Shougo/neocomplcache.git'
+set completeopt=menuone
 "Note: This option must set it in .vimrc(_vimrc).  NOT IN .gvimrc(_gvimrc)!
 " Disable AutoComplPop.
 let g:acp_enableAtStartup = 0
@@ -217,6 +220,7 @@ let g:neocomplcache_enable_smart_case = 1
 " Set minimum syntax keyword length.
 let g:neocomplcache_min_syntax_length = 3
 let g:neocomplcache_lock_buffer_name_pattern = '\*ku\*'
+let g:neocomplcache_enable_underbar_completion = 1
 
 " Enable heavy features.
 " Use camel case completion.
@@ -226,14 +230,14 @@ let g:neocomplcache_lock_buffer_name_pattern = '\*ku\*'
 
 " Define dictionary.
 let g:neocomplcache_dictionary_filetype_lists = {
-    \ 'default' : '',
-    \ 'vimshell' : $HOME.'/.vimshell_hist',
-    \ 'scheme' : $HOME.'/.gosh_completions'
-        \ }
+			\ 'default' : '',
+			\ 'vimshell' : $HOME.'/.vimshell_hist',
+			\ 'scheme' : $HOME.'/.gosh_completions'
+			\ }
 
 " Define keyword.
 if !exists('g:neocomplcache_keyword_patterns')
-    let g:neocomplcache_keyword_patterns = {}
+	let g:neocomplcache_keyword_patterns = {}
 endif
 let g:neocomplcache_keyword_patterns['default'] = '\h\w*'
 
@@ -245,9 +249,9 @@ inoremap <expr><C-l>     neocomplcache#complete_common_string()
 " <CR>: close popup and save indent.
 inoremap <silent> <CR> <C-r>=<SID>my_cr_function()<CR>
 function! s:my_cr_function()
-  return neocomplcache#smart_close_popup() . "\<CR>"
-  " For no inserting <CR> key.
-  "return pumvisible() ? neocomplcache#close_popup() : "\<CR>"
+	return neocomplcache#smart_close_popup() . "\<CR>"
+	" For no inserting <CR> key.
+	"return pumvisible() ? neocomplcache#close_popup() : "\<CR>"
 endfunction
 " <TAB>: completion.
 inoremap <expr><TAB>  pumvisible() ? "\<C-n>" : "\<TAB>"
@@ -287,7 +291,7 @@ autocmd FileType xml setlocal omnifunc=xmlcomplete#CompleteTags
 
 " Enable heavy omni completion.
 if !exists('g:neocomplcache_omni_patterns')
-  let g:neocomplcache_omni_patterns = {}
+	let g:neocomplcache_omni_patterns = {}
 endif
 let g:neocomplcache_omni_patterns.php = '[^. \t]->\h\w*\|\h\w*::'
 let g:neocomplcache_omni_patterns.c = '[^.[:digit:] *\t]\%(\.\|->\)'
@@ -313,9 +317,10 @@ let g:marching_clang_command = "/usr/bin/clang++"
 
 " インクルードディレクトリのパスを設定
 let g:marching_include_paths = [
-\   "/usr/include/c++/4.8",
-\   "/opt/ros/indigo/include/"
-\]
+			\	"/usr/include/c++/4.8",
+			\	"/opt/ros/indigo/include/",
+			\	"/home/shimizu/catkin_ws/devel/include"
+			\]
 
 " neocomplete.vim と併用して使用する場合
 let g:marching_enable_neocomplete = 1
@@ -341,11 +346,12 @@ imap <C-x><C-o> <Plug>(marching_force_start_omni_complete)
 NeoBundle "osyo-manga/vim-stargate"
 " インクルードディレクトリのパスを filetype ごとに設定
 let g:stargate#include_paths = {
-\   "cpp" : [
-\	"/usr/include/c++/4.8",
-\	"/opt/ros/indigo/include/"
-\   ]
-\}
+			\   "cpp" : [
+			\	"/usr/include/c++/4.8",
+			\	"/opt/ros/indigo/include/",
+			\	"/home/shimizu/catkin_ws/devel/include"
+			\   ]
+			\}
 
 "-------------------------------------------------------
 "vim-startify 最近開いたファイルの履歴
@@ -353,13 +359,13 @@ let g:stargate#include_paths = {
 NeoBundle "mhinz/vim-startify"
 " startifyのヘッダー部分に表示する文字列を設定する(dateコマンドを実行して日付を設定している)
 let g:startify_custom_header =
-  \ map(split(system('date'), '\n'), '"   ". v:val') + ['','']
+			\ map(split(system('date'), '\n'), '"   ". v:val') + ['','']
 " デフォルトだと、最近使ったファイルの先頭は数字なので、使用するアルファベットを指定
 let g:startify_custom_indices = ['f', 'g', 'h', 'r', 'i', 'o', 'b']
 " よく使うファイルをブックマークとして登録しておく
 let g:startify_bookmarks = [
-  \ '~/.vimrc',
-  \ ]
+			\ '~/.vimrc',
+			\ ]
 
 "-------------------------------------------------------
 "caw.vim コメントアウト関連
@@ -382,3 +388,19 @@ nmap <Leader>gk <Plug>(signify-prev-hunk)zz
 nmap <Leader>gh <Plug>(signify-toggle-highlight)
 " 差分表示をトグルする(:SignifyToggleコマンドと同じ)
 nmap <Leader>gt <Plug>(signify-toggle)
+
+"-------------------------------------------------------
+"Doxygen関係
+"-------------------------------------------------------
+NeoBundle 'vim-scripts/DoxygenToolkit.vim'
+
+"-------------------------------------------------------
+"Mario関係
+"-------------------------------------------------------
+NeoBundle 'rbtnn/mario.vim'
+NeoBundle 'rbtnn/game_engine.vim'
+
+"-------------------------------------------------------
+"Srround関係
+"-------------------------------------------------------
+NeoBundle 'tpope/vim-surround'
