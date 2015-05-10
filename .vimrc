@@ -19,6 +19,29 @@ if neobundle#exists_not_installed_bundles()
 	"finish
 endif
 
+NeoBundle 'AndrewRadev/switch.vim'
+NeoBundle 'troydm/easybuffer.vim'
+NeoBundle 'plasticboy/vim-markdown'
+NeoBundle 'kannokanno/previm'
+"NeoBundle 'git://git.code.sf.net/p/vim-latex/vim-latex'
+NeoBundle 'AndrewRadev/switch.vim'
+NeoBundle 'The-NERD-tree'
+NeoBundle 'tyru/open-browser.vim'
+NeoBundle 'Shougo/unite.vim'
+NeoBundle 'Shougo/vimproc'
+NeoBundle 'mbbill/undotree'
+NeoBundle 'YankRing.vim'
+NeoBundle 'osyo-manga/vim-over'
+NeoBundle 'Shougo/neocomplcache.git'
+NeoBundle "osyo-manga/vim-reunions"
+NeoBundle "osyo-manga/vim-marching"
+NeoBundle "osyo-manga/vim-stargate"
+NeoBundle "mhinz/vim-startify"
+NeoBundle "tyru/caw.vim.git"
+NeoBundle "mhinz/vim-signify"
+NeoBundle 'vim-scripts/DoxygenToolkit.vim'
+NeoBundle 'tpope/vim-surround'
+
 call neobundle#end()
 
 colorscheme desert
@@ -89,24 +112,19 @@ nmap <F5> <ESC>:QuickRun<CR>
 "-------------------------------------------------------
 " easybuffer
 "-------------------------------------------------------
-NeoBundle 'troydm/easybuffer.vim'
 
 "-------------------------------------------------------
 " markdown関係
 "-------------------------------------------------------
-NeoBundle 'plasticboy/vim-markdown'
-NeoBundle 'kannokanno/previm'
 
 au BufRead,BufNewFile *.md set filetype=markdown
 "-------------------------------------------------------
 "vim-latex設定 (備考)原因不明のエラーにより動作不能、原因解明急ぐ
 "-------------------------------------------------------
-"NeoBundle 'git://git.code.sf.net/p/vim-latex/vim-latex'
 
 "-------------------------------------------------------
 "switch設定
 "-------------------------------------------------------
-NeoBundle 'AndrewRadev/switch.vim'
 nnoremap + :call switch#Switch(g:variable_style_switch_definitions)<cr>
 nnoremap - :Switch<cr>
 
@@ -114,12 +132,10 @@ nnoremap - :Switch<cr>
 "-------------------------------------------------------
 "vim-quickrun設定 (備考)原因不明のエラーにより動作不能、原因解明急ぐ 香り屋vimで動かないという報告あり
 "-------------------------------------------------------
-NeoBundle 'thinca/vim-quickrun'
 
 "-------------------------------------------------------
 "The-NERD-tree設定
 "-------------------------------------------------------
-NeoBundle 'The-NERD-tree'
 " http://kokukuma.blogspot.jp/2012/03/vim-nerdtree.html
 
 " カーソルが外れているときは自動的にnerdtreeを隠す
@@ -154,7 +170,6 @@ let g:NERDTreeMouseMode=0
 "-------------------------------------------------------
 "open-browser設定
 "-------------------------------------------------------
-NeoBundle 'tyru/open-browser.vim'
 " カーソル下のURLを「gx」で開く
 " http://vim-users.jp/2011/08/hack225/
 let g:netrw_nogx = 1 " disable netrw's gx mapping.
@@ -164,13 +179,10 @@ vmap gx <Plug>(openbrowser-smart-search)
 "-------------------------------------------------------
 "open-browser設定
 "-------------------------------------------------------
-NeoBundle 'Shougo/unite.vim'
-NeoBundle 'Shougo/vimproc'
 
 "-------------------------------------------------------
 "undotree.vim設定
 "-------------------------------------------------------
-NeoBundle 'mbbill/undotree'
 nmap <Space>u :UndotreeToggle<CR>
 let g:undotree_SetFocusWhenToggle = 1
 let g:undotree_WindowLayout = 'topleft'
@@ -185,7 +197,6 @@ let g:undotree_HighlightSyntax = "UnderLined"
 "-------------------------------------------------------
 "YankRing.vim設定
 "-------------------------------------------------------
-NeoBundle 'YankRing.vim'
 "ヤンク履歴表示
 nmap <Space>y :YRShow<CR>
 " クリップボード共有
@@ -195,7 +206,6 @@ set clipboard+=unnamedplus,unnamed
 "-------------------------------------------------------
 "vim-over設定
 "-------------------------------------------------------
-NeoBundle 'osyo-manga/vim-over'
 " over.vimの起動
 nnoremap <Space>m :OverCommandLine<CR>
 
@@ -208,7 +218,6 @@ nnoremap subp y:OverCommandLine<CR>%s!<C-r>=substitute(@0, '!', '\\!', 'g')<CR>!
 "-------------------------------------------------------
 "neocomplache設定
 "-------------------------------------------------------
-NeoBundle 'Shougo/neocomplcache.git'
 set completeopt=menuone
 "Note: This option must set it in .vimrc(_vimrc).  NOT IN .gvimrc(_gvimrc)!
 " Disable AutoComplPop.
@@ -307,8 +316,6 @@ let g:neocomplcache_max_list=1000
 "-------------------------------------------------------
 "C++入力補完 http://d.hatena.ne.jp/osyo-manga/20131012/1381589852
 "-------------------------------------------------------
-NeoBundle "osyo-manga/vim-reunions"
-NeoBundle "osyo-manga/vim-marching"
 "clang コマンドの設定
 let g:marching_clang_command = "/usr/bin/clang++"
 
@@ -343,7 +350,6 @@ imap <C-x><C-o> <Plug>(marching_force_start_omni_complete)
 "-------------------------------------------------------
 "stargateInclude設定
 "-------------------------------------------------------
-NeoBundle "osyo-manga/vim-stargate"
 " インクルードディレクトリのパスを filetype ごとに設定
 let g:stargate#include_paths = {
 			\   "cpp" : [
@@ -356,7 +362,6 @@ let g:stargate#include_paths = {
 "-------------------------------------------------------
 "vim-startify 最近開いたファイルの履歴
 "-------------------------------------------------------
-NeoBundle "mhinz/vim-startify"
 " startifyのヘッダー部分に表示する文字列を設定する(dateコマンドを実行して日付を設定している)
 let g:startify_custom_header =
 			\ map(split(system('date'), '\n'), '"   ". v:val') + ['','']
@@ -370,7 +375,6 @@ let g:startify_bookmarks = [
 "-------------------------------------------------------
 "caw.vim コメントアウト関連
 "-------------------------------------------------------
-NeoBundle "tyru/caw.vim.git"
 " ,cで行の先頭にコメントをつけたり外したりできる
 nmap <Leader>c <Plug>(caw:i:toggle)
 vmap <Leader>c <Plug>(caw:i:toggle)
@@ -378,7 +382,6 @@ vmap <Leader>c <Plug>(caw:i:toggle)
 "-------------------------------------------------------
 "Vim差分表示 http://deris.hatenablog.jp/entry/2013/12/15/235606
 "-------------------------------------------------------
-NeoBundle "mhinz/vim-signify"
 ":SignifyToggleで差分表示
 " 次の差分箇所に移動
 nmap <Leader>gj <Plug>(signify-next-hunk)zz
@@ -392,15 +395,10 @@ nmap <Leader>gt <Plug>(signify-toggle)
 "-------------------------------------------------------
 "Doxygen関係
 "-------------------------------------------------------
-NeoBundle 'vim-scripts/DoxygenToolkit.vim'
 
 "-------------------------------------------------------
 "Mario関係
 "-------------------------------------------------------
-NeoBundle 'rbtnn/mario.vim'
-NeoBundle 'rbtnn/game_engine.vim'
-
 "-------------------------------------------------------
 "Srround関係
 "-------------------------------------------------------
-NeoBundle 'tpope/vim-surround'
