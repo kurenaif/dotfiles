@@ -41,6 +41,7 @@ NeoBundle "tyru/caw.vim.git"
 NeoBundle "mhinz/vim-signify"
 NeoBundle 'vim-scripts/DoxygenToolkit.vim'
 NeoBundle 'tpope/vim-surround'
+NeoBundle 'thinca/vim-quickrun'
 
 call neobundle#end()
 
@@ -82,6 +83,10 @@ set incsearch
 set wildmenu
 set whichwrap=b,s,[,],<,>
 set backspace=indent,eol,start
+set guifont=Ricty
+set splitbelow
+set splitright
+
 if &t_Co > 2 || has("gui_running")
 	syntax on
 	set hlsearch
@@ -112,6 +117,11 @@ nmap <F5> <ESC>:QuickRun<CR>
 "-------------------------------------------------------
 " easybuffer
 "-------------------------------------------------------
+
+"-------------------------------------------------------
+" quickrun
+"-------------------------------------------------------
+let g:quickrun_config={'*': {'split': 'vertical'}}
 
 "-------------------------------------------------------
 " markdown関係
@@ -325,6 +335,7 @@ let g:marching_clang_command = "/usr/bin/clang++"
 " インクルードディレクトリのパスを設定
 let g:marching_include_paths = [
 			\	"/usr/include/c++/4.8",
+			\	"/usr/local/include/c++/5.1.0/", 
 			\	"/opt/ros/indigo/include/",
 			\	"/home/shimizu/catkin_ws/devel/include"
 			\]
@@ -353,7 +364,7 @@ imap <C-x><C-o> <Plug>(marching_force_start_omni_complete)
 " インクルードディレクトリのパスを filetype ごとに設定
 let g:stargate#include_paths = {
 			\   "cpp" : [
-			\	"/usr/include/c++/4.8",
+			\	"/usr/local/include/c++/5.1.0/",
 			\	"/opt/ros/indigo/include/",
 			\	"/home/shimizu/catkin_ws/devel/include"
 			\   ]
