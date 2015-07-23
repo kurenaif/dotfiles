@@ -41,6 +41,8 @@ NeoBundle 'vim-scripts/DoxygenToolkit.vim'
 NeoBundle 'tpope/vim-surround'
 NeoBundle 'thinca/vim-quickrun'
 NeoBundle 'Rip-Rip/clang_complete'
+NeoBundle 'tpope/vim-fugitive'
+NeoBundle 'nathanaelkane/vim-indent-guides'
 
 call neobundle#end()
 
@@ -61,8 +63,8 @@ set textwidth=0
 " スワップファイル作らない
 set noswapfile
 
-set list
-set listchars=tab:>\ 
+" set list
+" set listchars=tab:▸\ 
 
 set tabstop=3
 set shiftwidth=3
@@ -81,6 +83,7 @@ set smartcase
 set incsearch
 set wildmenu
 set whichwrap=b,s,[,],<,>
+set wildmode=list:longest
 set backspace=indent,eol,start
 set splitbelow
 set splitright
@@ -374,3 +377,19 @@ nmap <Leader>gt <Plug>(signify-toggle)
 "-------------------------------------------------------
 "Srround関係
 "-------------------------------------------------------
+"
+"-------------------------------------------------------
+" vim-indent-guides
+"-------------------------------------------------------
+"" Vim 起動時 vim-indent-guides をnot自動起動
+let g:indent_guides_enable_on_vim_startup=0
+" ガイドをスタートするインデントの量
+let g:indent_guides_start_level=2
+" 自動カラー無効
+let g:indent_guides_auto_colors=0
+" 奇数番目のインデントの色
+autocmd VimEnter,Colorscheme * :hi IndentGuidesOdd  guibg=#444433 ctermbg=black
+" 偶数番目のインデントの色
+autocmd VimEnter,Colorscheme * :hi IndentGuidesEven guibg=#333344 ctermbg=darkgray
+" ガイドの幅
+let g:indent_guides_guide_size = 1
