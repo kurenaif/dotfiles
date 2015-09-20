@@ -33,6 +33,7 @@ NeoBundle 'mbbill/undotree'
 NeoBundle 'YankRing.vim'
 NeoBundle 'osyo-manga/vim-over'
 NeoBundle 'Shougo/neocomplete.vim'
+NeoBundle 'Shougo/neoinclude.vim'
 NeoBundle "osyo-manga/vim-stargate"
 NeoBundle "mhinz/vim-startify"
 NeoBundle "tyru/caw.vim.git"
@@ -321,7 +322,7 @@ let g:clang_auto_select=0
 "libclangを使う
 let g:clang_use_library=1
 let g:clang_debug=1
-let g:clang_library_path="/usr/lib/clang/3.6.2/lib"
+let g:clang_library_path="/usr/lib/clang/3.6.0/lib/linux"
 let g:clang_user_options = '-std=c++11'
 
 "-------------------------------------------------------
