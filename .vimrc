@@ -1,4 +1,5 @@
-"--------------------------------------------------------------------------
+"
+":/-------------------------------------------------------------------------
 " neobundle
 set nocompatible               " Be iMproved
 filetype off                   " Required!
@@ -23,7 +24,7 @@ NeoBundle 'AndrewRadev/switch.vim'
 NeoBundle 'troydm/easybuffer.vim'
 NeoBundle 'plasticboy/vim-markdown'
 NeoBundle 'kannokanno/previm'
-"NeoBundle 'git://git.code.sf.net/p/vim-latex/vim-latex'
+NeoBundle 'git://git.code.sf.net/p/vim-latex/vim-latex'
 NeoBundle 'AndrewRadev/switch.vim'
 NeoBundle 'The-NERD-tree'
 NeoBundle 'tyru/open-browser.vim'
@@ -123,7 +124,26 @@ nmap <F5> <ESC>:QuickRun<CR>
 "-------------------------------------------------------
 " quickrun
 "-------------------------------------------------------
-let g:quickrun_config={'*': {'split': 'vertical'}}
+let g:quickrun_config={
+\	'_': {'split': 'vertical', 
+\			"runner" : "vimproc", 
+\			"runner/vimproc/updatetime": 60}, 
+\
+\	"cpp" : {"cmdopt" : "-std=c++14",
+\			"hook/time/enable" : 1},
+\ 	"gnuplot/eps" : {'command' : 'makeplt_eps' },
+\  "gnuplot/tex" : {'command' : 'makeplt_tex' },
+\
+\   'tex':{
+\     'command' : 'latexmk',
+\     'cmdopt': '--xelatex -pv', 
+\		'exec' : "%c %o %s",
+\   },
+\}
+
+
+let g:quickrun_config.gnuplot = { 'command' : 'makeplt' }
+
 
 "-------------------------------------------------------
 " markdown関係
@@ -133,6 +153,43 @@ au BufRead,BufNewFile *.md set filetype=markdown
 "-------------------------------------------------------
 "vim-latex設定 (備考)原因不明のエラーにより動作不能、原因解明急ぐ
 "-------------------------------------------------------
+""
+"" Vim-LaTeX
+""
+filetype plugin on
+filetype indent on
+set shellslash
+set grepprg=grep\ -nH\ $*
+let g:tex_flavor='xelatex'
+let g:Imap_UsePlaceHolders = 1
+let g:Imap_DeleteEmptyPlaceHolders = 1
+let g:Imap_StickyPlaceHolders = 0
+let g:Tex_DefaultTargetFormat = 'pdf'
+let g:Tex_MultipleCompileFormats='dvi,pdf'
+"let g:Tex_FormatDependency_pdf = 'pdf'
+let g:Tex_FormatDependency_pdf = 'dvi,pdf'
+"let g:Tex_FormatDependency_pdf = 'dvi,ps,pdf'
+let g:Tex_FormatDependency_ps = 'dvi,ps'
+" let g:Tex_CompileRule_pdf = 'ptex2pdf -u -l -ot "-synctex=1 -interaction=nonstopmode -file-line-error-style" $*'
+"let g:Tex_CompileRule_pdf = 'pdflatex -synctex=1 -interaction=nonstopmode -file-line-error-style $*'
+"let g:Tex_CompileRule_pdf = 'lualatex -synctex=1 -interaction=nonstopmode -file-line-error-style $*'
+"let g:Tex_CompileRule_pdf = 'luajitlatex -synctex=1 -interaction=nonstopmode -file-line-error-style $*'
+let g:Tex_CompileRule_pdf = 'xelatex -synctex=1 -interaction=nonstopmode -file-line-error-style $*'
+"let g:Tex_CompileRule_pdf = 'ps2pdf $*.ps'
+let g:Tex_CompileRule_ps = 'dvips -Ppdf -o $*.ps $*.dvi'
+let g:Tex_CompileRule_dvi = 'uplatex -synctex=1 -interaction=nonstopmode -file-line-error-style $*'
+let g:Tex_BibtexFlavor = 'upbibtex'
+let g:Tex_MakeIndexFlavor = 'upmendex $*.idx'
+let g:Tex_UseEditorSettingInDVIViewer = 1
+let g:Tex_ViewRule_pdf = 'evince'
+"let g:Tex_ViewRule_pdf = 'evince'
+"let g:Tex_ViewRule_pdf = 'okular --unique'
+"let g:Tex_ViewRule_pdf = 'zathura -s -x "vim --servername synctex -n --remote-silent +\%{line} \%{input}"'
+"let g:Tex_ViewRule_pdf = 'qpdfview --unique'
+"let g:Tex_ViewRule_pdf = 'texworks'
+"let g:Tex_ViewRule_pdf = 'mupdf'
+"let g:Tex_ViewRule_pdf = 'firefox -new-window'
+"let g:Tex_ViewRule_pdf = 'chromium --new-window'
 
 "-------------------------------------------------------
 "switch設定
