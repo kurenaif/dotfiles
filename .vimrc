@@ -42,7 +42,7 @@ NeoBundle "mhinz/vim-signify"
 NeoBundle 'vim-scripts/DoxygenToolkit.vim'
 NeoBundle 'tpope/vim-surround'
 NeoBundle 'thinca/vim-quickrun'
-NeoBundle 'Rip-Rip/clang_complete'
+" NeoBundle 'Rip-Rip/clang_complete'
 NeoBundle 'tpope/vim-fugitive'
 NeoBundle 'nathanaelkane/vim-indent-guides'
 
@@ -370,17 +370,17 @@ endif
 " For perlomni.vim setting.
 " https://github.com/c9s/perlomni.vim
 let g:neocomplete#sources#omni#input_patterns.perl = '\h\w*->\h\w*\|\h\w*::'
-"-------------------------------------------------------
-"clang_complete設定
-"-------------------------------------------------------
-" neocomplcacheとの競合を避けるため、自動呼び出しはOff
-let g:clang_complete_auto=1
-let g:clang_auto_select=0
-"libclangを使う
-let g:clang_use_library=1
-let g:clang_debug=1
-let g:clang_library_path="/usr/lib/clang/3.6.0/lib/linux"
-let g:clang_user_options = '-std=c++11'
+" "-------------------------------------------------------
+" "clang_complete設定
+" "-------------------------------------------------------
+" " neocomplcacheとの競合を避けるため、自動呼び出しはOff
+" let g:clang_complete_auto=1
+" let g:clang_auto_select=0
+" "libclangを使う
+" let g:clang_use_library=1
+" let g:clang_debug=1
+" let g:clang_library_path="/usr/lib/clang/3.6.0/lib/linux"
+" let g:clang_user_options = '-std=c++11'
 
 "-------------------------------------------------------
 "stargateInclude設定
@@ -429,9 +429,6 @@ nmap <Leader>gt <Plug>(signify-toggle)
 "Doxygen関係
 "-------------------------------------------------------
 
-"-------------------------------------------------------
-"Mario関係
-"-------------------------------------------------------
 "-------------------------------------------------------
 "Srround関係
 "-------------------------------------------------------
