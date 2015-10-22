@@ -20,31 +20,41 @@ if neobundle#exists_not_installed_bundles()
 	"finish
 endif
 
+NeoBundle "mhinz/vim-signify"
+NeoBundle "mhinz/vim-startify"
+NeoBundle "osyo-manga/vim-stargate"
+NeoBundle "tyru/caw.vim.git"
 NeoBundle 'AndrewRadev/switch.vim'
-NeoBundle 'troydm/easybuffer.vim'
-NeoBundle 'plasticboy/vim-markdown'
-NeoBundle 'kannokanno/previm'
-NeoBundle 'git://git.code.sf.net/p/vim-latex/vim-latex'
 NeoBundle 'AndrewRadev/switch.vim'
-NeoBundle 'The-NERD-tree'
-NeoBundle 'tyru/open-browser.vim'
-NeoBundle 'Shougo/unite.vim'
-NeoBundle 'Shougo/vimproc'
-NeoBundle 'mbbill/undotree'
-NeoBundle 'YankRing.vim'
-NeoBundle 'osyo-manga/vim-over'
+NeoBundle 'Rip-Rip/clang_complete'
 NeoBundle 'Shougo/neocomplete.vim'
 NeoBundle 'Shougo/neoinclude.vim'
-NeoBundle "osyo-manga/vim-stargate"
-NeoBundle "mhinz/vim-startify"
-NeoBundle "tyru/caw.vim.git"
-NeoBundle "mhinz/vim-signify"
-NeoBundle 'vim-scripts/DoxygenToolkit.vim'
-NeoBundle 'tpope/vim-surround'
-NeoBundle 'thinca/vim-quickrun'
-" NeoBundle 'Rip-Rip/clang_complete'
-NeoBundle 'tpope/vim-fugitive'
+NeoBundle 'Shougo/unite.vim'
+NeoBundle 'Shougo/vimproc'
+NeoBundle 'The-NERD-tree'
+NeoBundle 'YankRing.vim'
+NeoBundle 'git://git.code.sf.net/p/vim-latex/vim-latex'
+NeoBundle 'kannokanno/previm'
+NeoBundle 'marcus/rsense'
+NeoBundle 'mbbill/undotree'
 NeoBundle 'nathanaelkane/vim-indent-guides'
+NeoBundle 'osyo-manga/vim-monster'
+NeoBundle 'osyo-manga/vim-over'
+NeoBundle 'plasticboy/vim-markdown'
+NeoBundle 'rhysd/unite-ruby-require.vim'
+NeoBundle 'scrooloose/syntastic'
+NeoBundle 'supermomonga/neocomplete-rsense.vim'
+NeoBundle 'szw/vim-tags'
+NeoBundle 'thinca/vim-quickrun'
+NeoBundle 'thinca/vim-ref'
+NeoBundle 'tpope/vim-endwise'
+NeoBundle 'tpope/vim-fugitive'
+NeoBundle 'tpope/vim-surround'
+NeoBundle 'troydm/easybuffer.vim'
+NeoBundle 'tyru/open-browser.vim'
+NeoBundle 'vim-scripts/DoxygenToolkit.vim'
+NeoBundle 'yuku-t/vim-ref-ri'
+
 
 call neobundle#end()
 
@@ -194,8 +204,21 @@ let g:Tex_ViewRule_pdf = 'evince'
 "-------------------------------------------------------
 "switch設定
 "-------------------------------------------------------
+let g:variable_style_switch_definitions =
+\[
+\   {
+\			'Y': {
+\				'YES': 'NO'
+\			},
+\			'N': {
+\				'NO': 'YES'
+\			},
+\   },
+\]
+
 nnoremap + :call switch#Switch(g:variable_style_switch_definitions)<cr>
 nnoremap - :Switch<cr>
+
 
 
 "-------------------------------------------------------
@@ -284,6 +307,28 @@ nnoremap sub :OverCommandLine<CR>%s/<C-r><C-w>//g<Left><Left>
 " コピーした文字列をハイライト付きで置換
 nnoremap subp y:OverCommandLine<CR>%s!<C-r>=substitute(@0, '!', '\\!', 'g')<CR>!!gI<Left><Left><Left>
 
+
+"-------------------------------------------------------
+"rsense設定
+"-------------------------------------------------------
+let g:rsenseHome = '/opt/rsense-0.3'
+let g:rsenseUseOmniFunc = 1
+
+" --------------------------------
+" rubocop
+" --------------------------------
+" syntastic_mode_mapをactiveにするとバッファ保存時にsyntasticが走る
+" active_filetypesに、保存時にsyntasticを走らせるファイルタイプを指定する
+let g:syntastic_mode_map = { 'mode': 'passive', 'active_filetypes': ['ruby'] }
+let g:syntastic_ruby_checkers = ['rubocop']
+
+
+"-------------------------------------------------------
+"vim-monster
+"-------------------------------------------------------
+" Set async completion.
+let g:monster#completion#rcodetools#backend = "async_rct_complete"
+
 "-------------------------------------------------------
 "neocomplete設定
 "-------------------------------------------------------
@@ -295,7 +340,7 @@ let g:neocomplete#enable_at_startup = 1
 " Use smartcase.
 let g:neocomplete#enable_smart_case = 1
 " Set minimum syntax keyword length.
-let g:neocomplete#sources#syntax#min_keyword_length = 1
+let g:neocomplete#sources#syntax#min_keyword_length = 0
 let g:neocomplete#lock_buffer_name_pattern = '\*ku\*'
 
 " Define dictionary.
@@ -370,17 +415,21 @@ endif
 " For perlomni.vim setting.
 " https://github.com/c9s/perlomni.vim
 let g:neocomplete#sources#omni#input_patterns.perl = '\h\w*->\h\w*\|\h\w*::'
-" "-------------------------------------------------------
-" "clang_complete設定
-" "-------------------------------------------------------
-" " neocomplcacheとの競合を避けるため、自動呼び出しはOff
-" let g:clang_complete_auto=1
-" let g:clang_auto_select=0
-" "libclangを使う
-" let g:clang_use_library=1
-" let g:clang_debug=1
-" let g:clang_library_path="/usr/lib/clang/3.6.0/lib/linux"
-" let g:clang_user_options = '-std=c++11'
+let g:neocomplete#sources#omni#input_patterns = {
+\   "ruby" : '[^. *\t]\.\w*\|\h\w*::',
+\}
+
+"-------------------------------------------------------
+"clang_complete設定
+"-------------------------------------------------------
+" neocomplcacheとの競合を避けるため、自動呼び出しはOff
+let g:clang_complete_auto=1
+let g:clang_auto_select=0
+"libclangを使う
+let g:clang_use_library=1
+let g:clang_debug=1
+let g:clang_library_path="/usr/lib/clang/3.6.0/lib/linux"
+let g:clang_user_options = '-std=c++11'
 
 "-------------------------------------------------------
 "stargateInclude設定
