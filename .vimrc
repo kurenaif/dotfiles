@@ -26,6 +26,7 @@ NeoBundle "osyo-manga/vim-stargate"
 NeoBundle "tyru/caw.vim.git"
 NeoBundle 'AndrewRadev/switch.vim'
 NeoBundle 'AndrewRadev/switch.vim'
+NeoBundle 'NigoroJr/rsense'
 NeoBundle 'Rip-Rip/clang_complete'
 NeoBundle 'Shougo/neocomplete.vim'
 NeoBundle 'Shougo/neoinclude.vim'
@@ -35,15 +36,14 @@ NeoBundle 'The-NERD-tree'
 NeoBundle 'YankRing.vim'
 NeoBundle 'git://git.code.sf.net/p/vim-latex/vim-latex'
 NeoBundle 'kannokanno/previm'
-NeoBundle 'marcus/rsense'
 NeoBundle 'mbbill/undotree'
 NeoBundle 'nathanaelkane/vim-indent-guides'
 NeoBundle 'osyo-manga/vim-monster'
 NeoBundle 'osyo-manga/vim-over'
 NeoBundle 'plasticboy/vim-markdown'
+NeoBundle 'rhysd/neco-ruby-keyword-args'
 NeoBundle 'rhysd/unite-ruby-require.vim'
 NeoBundle 'scrooloose/syntastic'
-NeoBundle 'supermomonga/neocomplete-rsense.vim'
 NeoBundle 'szw/vim-tags'
 NeoBundle 'thinca/vim-quickrun'
 NeoBundle 'thinca/vim-ref'
@@ -54,7 +54,8 @@ NeoBundle 'troydm/easybuffer.vim'
 NeoBundle 'tyru/open-browser.vim'
 NeoBundle 'vim-scripts/DoxygenToolkit.vim'
 NeoBundle 'yuku-t/vim-ref-ri'
-
+NeoBundleLazy 'supermomonga/neocomplete-rsense.vim', { 'autoload' : { 'insert' : 1, 'filetype' : 'ruby', } }
+NeoBundle 'richq/vim-cmake-completion'
 
 call neobundle#end()
 
@@ -99,6 +100,8 @@ set wildmode=list:longest
 set backspace=indent,eol,start
 set splitbelow
 set splitright
+
+set nocp
 
 if &t_Co > 2 || has("gui_running")
 	syntax on
@@ -340,7 +343,7 @@ let g:neocomplete#enable_at_startup = 1
 " Use smartcase.
 let g:neocomplete#enable_smart_case = 1
 " Set minimum syntax keyword length.
-let g:neocomplete#sources#syntax#min_keyword_length = 0
+let g:neocomplete#sources#syntax#min_keyword_length = 1
 let g:neocomplete#lock_buffer_name_pattern = '\*ku\*'
 
 " Define dictionary.
@@ -418,6 +421,8 @@ let g:neocomplete#sources#omni#input_patterns.perl = '\h\w*->\h\w*\|\h\w*::'
 let g:neocomplete#sources#omni#input_patterns = {
 \   "ruby" : '[^. *\t]\.\w*\|\h\w*::',
 \}
+
+let g:neocomplete#sources#rsense#home_directory = '/usr/local/bin/rsense'
 
 "-------------------------------------------------------
 "clang_complete設定
