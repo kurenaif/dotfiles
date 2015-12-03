@@ -1,0 +1,9 @@
+#!/bin/sh
+PLTNAME=$(basename $1)
+DIR=$(dirname $1)
+gnuplot<<EOF
+cd "$DIR"
+set terminal tikz standalone
+set out "${PLTNAME%plt}tex"
+load "$PLTNAME"
+EOF
