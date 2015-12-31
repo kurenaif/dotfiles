@@ -1,4 +1,7 @@
 #!/bin/sh
+
+for i in `seq 1 ${#}`
+do
 PLTNAME=$(basename $1)
 DIR=$(dirname $1)
 gnuplot<<EOF
@@ -7,3 +10,5 @@ set terminal postscript eps enhanced color solid
 set out "${PLTNAME%plt}eps"
 load "$PLTNAME"
 EOF
+shift
+done
