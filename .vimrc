@@ -134,6 +134,8 @@ nmap <F6> <ESC>i<C-R>=strftime("%Y/%m/%d (%a) %H:%M")<CR><CR>
 nnoremap <ESC><ESC> :nohlsearch<CR>
 "F5でQuickrun
 nmap <F5> <ESC>:QuickRun<CR>
+" F12で相対行表示
+nnoremap <F12> :<C-u>setlocal relativenumber!<CR>
 
 "-------------------------------------------------------
 " 操作関連
