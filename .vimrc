@@ -34,7 +34,6 @@ NeoBundle 'Shougo/unite.vim'
 NeoBundle 'Shougo/vimproc'
 NeoBundle 'The-NERD-tree'
 NeoBundle 'YankRing.vim'
-NeoBundle 'git://git.code.sf.net/p/vim-latex/vim-latex'
 NeoBundle 'kannokanno/previm'
 NeoBundle 'mbbill/undotree'
 NeoBundle 'nathanaelkane/vim-indent-guides'
@@ -56,6 +55,15 @@ NeoBundle 'vim-scripts/DoxygenToolkit.vim'
 NeoBundle 'yuku-t/vim-ref-ri'
 NeoBundleLazy 'supermomonga/neocomplete-rsense.vim', { 'autoload' : { 'insert' : 1, 'filetype' : 'ruby', } }
 NeoBundle 'richq/vim-cmake-completion'
+NeoBundle 'Ignotus/vim-cmake-project'
+NeoBundleLazy "davidhalter/jedi-vim", {
+      \ "autoload": {
+      \   "filetypes": ["python", "python3", "djangohtml"],
+      \ },
+      \ "build": {
+      \   "mac": "pip install jedi",
+      \   "unix": "pip install jedi",
+      \ }}
 
 call neobundle#end()
 
@@ -65,6 +73,8 @@ set cursorline
 "-------------------------------------------------------
 "オプション設定, 基本設定
 "-------------------------------------------------------
+
+filetype plugin on
 
 " <Leader>キーを「,」に変更
 let mapleader = ","
@@ -125,7 +135,6 @@ nnoremap <ESC><ESC> :nohlsearch<CR>
 "F5でQuickrun
 nmap <F5> <ESC>:QuickRun<CR>
 
-
 "-------------------------------------------------------
 " 操作関連
 "-------------------------------------------------------
@@ -152,6 +161,16 @@ let g:quickrun_config={
 \     'cmdopt': '--xelatex -pv', 
 \		'exec' : "%c %o %s",
 \   },
+\	
+\	'python':{
+\		'command' : 'python3'
+\	},
+\	'python2':{
+\		'command' : 'python2'
+\	},
+\	'python3':{
+\		'command' : 'python3'
+\	},
 \}
 
 
@@ -161,48 +180,7 @@ let g:quickrun_config.gnuplot = { 'command' : 'makeplt' }
 "-------------------------------------------------------
 " markdown関係
 "-------------------------------------------------------
-
 au BufRead,BufNewFile *.md set filetype=markdown
-"-------------------------------------------------------
-"vim-latex設定 (備考)原因不明のエラーにより動作不能、原因解明急ぐ
-"-------------------------------------------------------
-""
-"" Vim-LaTeX
-""
-filetype plugin on
-filetype indent on
-set shellslash
-set grepprg=grep\ -nH\ $*
-let g:tex_flavor='xelatex'
-let g:Imap_UsePlaceHolders = 1
-let g:Imap_DeleteEmptyPlaceHolders = 1
-let g:Imap_StickyPlaceHolders = 0
-let g:Tex_DefaultTargetFormat = 'pdf'
-let g:Tex_MultipleCompileFormats='dvi,pdf'
-"let g:Tex_FormatDependency_pdf = 'pdf'
-let g:Tex_FormatDependency_pdf = 'dvi,pdf'
-"let g:Tex_FormatDependency_pdf = 'dvi,ps,pdf'
-let g:Tex_FormatDependency_ps = 'dvi,ps'
-" let g:Tex_CompileRule_pdf = 'ptex2pdf -u -l -ot "-synctex=1 -interaction=nonstopmode -file-line-error-style" $*'
-"let g:Tex_CompileRule_pdf = 'pdflatex -synctex=1 -interaction=nonstopmode -file-line-error-style $*'
-"let g:Tex_CompileRule_pdf = 'lualatex -synctex=1 -interaction=nonstopmode -file-line-error-style $*'
-"let g:Tex_CompileRule_pdf = 'luajitlatex -synctex=1 -interaction=nonstopmode -file-line-error-style $*'
-let g:Tex_CompileRule_pdf = 'xelatex -synctex=1 -interaction=nonstopmode -file-line-error-style $*'
-"let g:Tex_CompileRule_pdf = 'ps2pdf $*.ps'
-let g:Tex_CompileRule_ps = 'dvips -Ppdf -o $*.ps $*.dvi'
-let g:Tex_CompileRule_dvi = 'uplatex -synctex=1 -interaction=nonstopmode -file-line-error-style $*'
-let g:Tex_BibtexFlavor = 'upbibtex'
-let g:Tex_MakeIndexFlavor = 'upmendex $*.idx'
-let g:Tex_UseEditorSettingInDVIViewer = 1
-let g:Tex_ViewRule_pdf = 'evince'
-"let g:Tex_ViewRule_pdf = 'evince'
-"let g:Tex_ViewRule_pdf = 'okular --unique'
-"let g:Tex_ViewRule_pdf = 'zathura -s -x "vim --servername synctex -n --remote-silent +\%{line} \%{input}"'
-"let g:Tex_ViewRule_pdf = 'qpdfview --unique'
-"let g:Tex_ViewRule_pdf = 'texworks'
-"let g:Tex_ViewRule_pdf = 'mupdf'
-"let g:Tex_ViewRule_pdf = 'firefox -new-window'
-"let g:Tex_ViewRule_pdf = 'chromium --new-window'
 
 "-------------------------------------------------------
 "switch設定
@@ -221,12 +199,6 @@ let g:variable_style_switch_definitions =
 
 nnoremap + :call switch#Switch(g:variable_style_switch_definitions)<cr>
 nnoremap - :Switch<cr>
-
-
-
-"-------------------------------------------------------
-"vim-quickrun設定 (備考)原因不明のエラーにより動作不能、原因解明急ぐ 香り屋vimで動かないという報告あり
-"-------------------------------------------------------
 
 "-------------------------------------------------------
 "The-NERD-tree設定
@@ -271,9 +243,6 @@ let g:netrw_nogx = 1 " disable netrw's gx mapping.
 nmap gx <Plug>(openbrowser-smart-search)
 vmap gx <Plug>(openbrowser-smart-search)
 
-"-------------------------------------------------------
-"open-browser設定
-"-------------------------------------------------------
 
 "-------------------------------------------------------
 "undotree.vim設定
@@ -424,6 +393,8 @@ let g:neocomplete#sources#omni#input_patterns = {
 
 let g:neocomplete#sources#rsense#home_directory = '/usr/local/bin/rsense'
 
+let g:neocomplete#sources#include#paths = '~/anaconda3/lib/python3.5/site-packages'
+
 "-------------------------------------------------------
 "clang_complete設定
 "-------------------------------------------------------
@@ -433,7 +404,7 @@ let g:clang_auto_select=0
 "libclangを使う
 let g:clang_use_library=1
 let g:clang_debug=1
-let g:clang_library_path="/usr/lib/clang/3.6.0/lib/linux"
+let g:clang_library_path="/usr/lib/x86_64-linux-gnu/"
 let g:clang_user_options = '-std=c++11'
 
 "-------------------------------------------------------
@@ -495,10 +466,26 @@ let g:indent_guides_enable_on_vim_startup=0
 " ガイドをスタートするインデントの量
 let g:indent_guides_start_level=2
 " 自動カラー無効
-let g:indent_guides_auto_colors=0
+let g:indent_guides_auto_colors = 0
 " 奇数番目のインデントの色
-autocmd VimEnter,Colorscheme * :hi IndentGuidesOdd  guibg=#444433 ctermbg=black
+autocmd VimEnter,Colorscheme * :hi IndentGuidesOdd  guibg=red   ctermbg=3
 " 偶数番目のインデントの色
-autocmd VimEnter,Colorscheme * :hi IndentGuidesEven guibg=#333344 ctermbg=darkgray
+autocmd VimEnter,Colorscheme * :hi IndentGuidesEven guibg=green ctermbg=4
 " ガイドの幅
 let g:indent_guides_guide_size = 1
+
+"-------------------------------------------------------
+" jedi-vim
+"-------------------------------------------------------
+let s:hooks = neobundle#get_hooks("jedi-vim")
+function! s:hooks.on_source(bundle)
+  " jediにvimの設定を任せると'completeopt+=preview'するので
+  " 自動設定機能をOFFにし手動で設定を行う
+  let g:jedi#auto_vim_configuration = 0
+  " 補完の最初の項目が選択された状態だと使いにくいためオフにする
+  let g:jedi#popup_select_first = 0
+  " quickrunと被るため大文字に変更
+  let g:jedi#rename_command = '<Leader>R'
+  " gundoと被るため大文字に変更 (2013-06-24 10:00 追記）
+  let g:jedi#goto_command = '<Leader>G'
+endfunction
