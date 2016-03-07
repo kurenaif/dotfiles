@@ -137,6 +137,17 @@ nmap <F5> <ESC>:QuickRun<CR>
 " F12で相対行表示
 nnoremap <F12> :<C-u>setlocal relativenumber!<CR>
 
+"バイナリ編集(xxd)モード(vim -b での起動、もしくは *.bin ファイルを開くと発動します)
+augroup BinaryXXD
+  autocmd!
+  autocmd BufReadPre  *.bin let &binary =1
+  autocmd BufReadPost * if &binary | silent %!xxd -g 1
+  autocmd BufReadPost * set ft=xxd | endif
+  autocmd BufWritePre * if &binary | %!xxd -r | endif
+  autocmd BufWritePost * if &binary | silent %!xxd -g 1
+  autocmd BufWritePost * set nomod | endif
+augroup END
+
 "-------------------------------------------------------
 " 操作関連
 "-------------------------------------------------------
@@ -415,7 +426,7 @@ let g:clang_user_options = '-std=c++11'
 " インクルードディレクトリのパスを filetype ごとに設定
 let g:stargate#include_paths = {
 			\   "cpp" : [
-			\   "/usr/lib/gcc/x86_64-linux-gnu/4.9.2/"
+			\   "/usr/lib/gcc/x86_64-linux-gnu/5.2.1/"
 			\   ]
 			\}
 
