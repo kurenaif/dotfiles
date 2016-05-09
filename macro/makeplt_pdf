@@ -1,0 +1,14 @@
+#!/bin/sh
+
+for i in `seq 1 ${#}`
+do
+PLTNAME=$(basename $1)
+DIR=$(dirname $1)
+gnuplot<<EOF
+cd "$DIR"
+set term pdfcairo enhanced size 4in, 3in
+set out "${PLTNAME%plt}pdf"
+load "$PLTNAME"
+EOF
+shift
+done
