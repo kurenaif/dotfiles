@@ -56,19 +56,10 @@ NeoBundle 'yuku-t/vim-ref-ri'
 NeoBundleLazy 'supermomonga/neocomplete-rsense.vim', { 'autoload' : { 'insert' : 1, 'filetype' : 'ruby', } }
 NeoBundle 'richq/vim-cmake-completion'
 NeoBundle 'Ignotus/vim-cmake-project'
-NeoBundleLazy "davidhalter/jedi-vim", {
-      \ "autoload": {
-      \   "filetypes": ["python", "python3", "djangohtml"],
-      \ },
-      \ "build": {
-      \   "mac": "pip install jedi",
-      \   "unix": "pip install jedi",
-      \ }}
 
 call neobundle#end()
 
 colorscheme desert
-set cursorline
 
 "-------------------------------------------------------
 "オプション設定, 基本設定
@@ -148,6 +139,11 @@ augroup BinaryXXD
   autocmd BufWritePost * set nomod | endif
 augroup END
 
+"Fortran設定
+let fortran_free_source=1
+let fortran_fold=1
+au! BufRead,BufNewFile *.f90 let b:fortran_do_enddo=1
+
 "-------------------------------------------------------
 " 操作関連
 "-------------------------------------------------------
@@ -168,6 +164,7 @@ let g:quickrun_config={
 \			"hook/time/enable" : 1},
 \ 	"gnuplot/eps" : {'command' : 'makeplt_eps' },
 \  "gnuplot/tex" : {'command' : 'makeplt_tex' },
+\  "gnuplot/pdf" : {'command' : 'makeplt_pdf' },
 \
 \   'tex':{
 \     'command' : 'latexmk',
