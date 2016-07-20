@@ -5,5 +5,5 @@ Setting of vim
 # history
 ### 2016-07-20
 .tmux.confを追加した
-(これを使わせていただいた)[https://github.com/koara-local/dotfiles]
+[これを使わせていただいた](https://github.com/koara-local/dotfiles)
 ホームディレクトリ直下に配置する
