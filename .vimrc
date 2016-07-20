@@ -55,7 +55,10 @@ NeoBundle 'vim-scripts/DoxygenToolkit.vim'
 NeoBundle 'yuku-t/vim-ref-ri'
 NeoBundleLazy 'supermomonga/neocomplete-rsense.vim', { 'autoload' : { 'insert' : 1, 'filetype' : 'ruby', } }
 NeoBundle 'richq/vim-cmake-completion'
-NeoBundle 'Ignotus/vim-cmake-project'
+NeoBundle 'Shougo/neobundle.vim'
+NeoBundle 'Lokaltog/powerline', { 'rtp' : 'powerline/bindings/vim'}
+
+
 
 call neobundle#end()
 
@@ -127,6 +130,8 @@ nnoremap <ESC><ESC> :nohlsearch<CR>
 nmap <F5> <ESC>:QuickRun<CR>
 " F12で相対行表示
 nnoremap <F12> :<C-u>setlocal relativenumber!<CR>
+
+imap <c-f> <esc>
 
 "バイナリ編集(xxd)モード(vim -b での起動、もしくは *.bin ファイルを開くと発動します)
 augroup BinaryXXD
@@ -327,14 +332,14 @@ let g:neocomplete#lock_buffer_name_pattern = '\*ku\*'
 
 " Define dictionary.
 let g:neocomplete#sources#dictionary#dictionaries = {
-    \ 'default' : '',
-    \ 'vimshell' : $HOME.'/.vimshell_hist',
-    \ 'scheme' : $HOME.'/.gosh_completions'
-        \ }
+	 \ 'default' : '',
+	 \ 'vimshell' : $HOME.'/.vimshell_hist',
+	 \ 'scheme' : $HOME.'/.gosh_completions'
+		  \ }
 
 " Define keyword.
 if !exists('g:neocomplete#keyword_patterns')
-    let g:neocomplete#keyword_patterns = {}
+	 let g:neocomplete#keyword_patterns = {}
 endif
 let g:neocomplete#keyword_patterns['default'] = '\h\w*'
 
