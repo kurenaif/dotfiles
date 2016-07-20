@@ -5,5 +5,5 @@ Setting of vim
 # history
 ### 2016-07-20
 .tmux.confを追加した もはやvimrcですらなくなる 
-[これを使わせていただいた](https://github.com/koara-local/dotfiles)
+[git-echo-branch-tmux-current-paneはこれを使った](https://github.com/koara-local/dotfiles)
 ホームディレクトリ直下に配置する
