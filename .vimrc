@@ -57,8 +57,8 @@ NeoBundleLazy 'supermomonga/neocomplete-rsense.vim', { 'autoload' : { 'insert' :
 NeoBundle 'richq/vim-cmake-completion'
 NeoBundle 'Shougo/neobundle.vim'
 NeoBundle 'Lokaltog/powerline', { 'rtp' : 'powerline/bindings/vim'}
-
-
+NeoBundle 'vim-scripts/taglist.vim'
+NeoBundle 'szw/vim-tags'
 
 call neobundle#end()
 
@@ -83,8 +83,8 @@ set noswapfile
 " set list
 " set listchars=tab:▸\ 
 
-set tabstop=3
-set shiftwidth=3
+set tabstop=4
+set shiftwidth=4
 set hidden
 set number
 set title
@@ -152,6 +152,8 @@ au! BufRead,BufNewFile *.f90 let b:fortran_do_enddo=1
 "-------------------------------------------------------
 " 操作関連
 "-------------------------------------------------------
+map <silent> <S-Insert> "+p
+imap <silent> <S-Insert> <Esc>"+pa
 
 "-------------------------------------------------------
 " easybuffer
@@ -504,3 +506,12 @@ function! s:hooks.on_source(bundle)
   " gundoと被るため大文字に変更 (2013-06-24 10:00 追記）
   let g:jedi#goto_command = '<Leader>G'
 endfunction
+
+"-------------------------------------------------------
+" taglist
+"-------------------------------------------------------
+let Tlist_Ctags_Cmd = "/usr/bin/ctags"
+let Tlist_Show_One_File = 1
+let Tlist_Use_Right_Window = 1
+let Tlist_Exit_OnlyWindow = 1
+
