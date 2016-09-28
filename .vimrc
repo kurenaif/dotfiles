@@ -59,6 +59,8 @@ NeoBundle 'Shougo/neobundle.vim'
 NeoBundle 'Lokaltog/powerline', { 'rtp' : 'powerline/bindings/vim'}
 NeoBundle 'vim-scripts/taglist.vim'
 NeoBundle 'szw/vim-tags'
+NeoBundle 'scrooloose/syntastic'
+NeoBundle 'pmsorhaindo/syntastic-local-eslint.vim'
 
 call neobundle#end()
 
@@ -75,7 +77,7 @@ let mapleader = ","
 " 一行に長い文章を書いていても自動折り返しをしない
 set textwidth=0
 " 一行に長い文章を書いていても自動折り返しをしない
-set textwidth=0
+" set textwidth=0
 "見えない文字の可視化を行う
 " スワップファイル作らない
 set noswapfile
@@ -122,16 +124,6 @@ set smarttab
 "カーソルと行頭、行末でとまらないようにする
 set whichwrap=b,s,h,l,<,>,[,]
 
-"--- <F6>  タイムスタンプを挿入してinsertモードへ移行 ----
-nmap <F6> <ESC>i<C-R>=strftime("%Y/%m/%d (%a) %H:%M")<CR><CR>
-"ESC二回でハイライト削除
-nnoremap <ESC><ESC> :nohlsearch<CR>
-"F5でQuickrun
-nmap <F5> <ESC>:QuickRun<CR>
-" F12で相対行表示
-nnoremap <F12> :<C-u>setlocal relativenumber!<CR>
-
-imap <c-f> <esc>
 
 "バイナリ編集(xxd)モード(vim -b での起動、もしくは *.bin ファイルを開くと発動します)
 augroup BinaryXXD
@@ -152,8 +144,20 @@ au! BufRead,BufNewFile *.f90 let b:fortran_do_enddo=1
 "-------------------------------------------------------
 " 操作関連
 "-------------------------------------------------------
-map <silent> <S-Insert> "+p
-imap <silent> <S-Insert> <Esc>"+pa
+map <silent> <S-Insert> "*p
+imap <silent> <S-Insert> <Esc>"*pa
+"--- <F6>  タイムスタンプを挿入してinsertモードへ移行 ----
+nmap <F6> <ESC>i<C-R>=strftime("%Y/%m/%d (%a) %H:%M")<CR><CR>
+"ESC二回でハイライト削除
+nnoremap <ESC><ESC> :nohlsearch<CR>
+"F5でQuickrun
+nmap <F5> <ESC>:QuickRun<CR>
+
+nmap <Leader>C <ESC>:w<CR>:SyntasticCheck<CR>
+" F12で相対行表示
+nnoremap <F12> :<C-u>setlocal relativenumber!<CR>
+
+imap <c-f> <esc>
 
 "-------------------------------------------------------
 " easybuffer
@@ -515,3 +519,17 @@ let Tlist_Show_One_File = 1
 let Tlist_Use_Right_Window = 1
 let Tlist_Exit_OnlyWindow = 1
 
+"-------------------------------------------------------
+" syntastic
+"-------------------------------------------------------
+set statusline+=%#warningmsg#
+set statusline+=%{SyntasticStatuslineFlag()}
+set statusline+=%*
+
+let g:syntastic_enable_signs = 1
+let g:syntastic_error_symbol = '✗'
+let g:syntastic_warning_symbol = '⚠'
+let g:syntastic_always_populate_loc_list = 1
+let g:syntastic_auto_loc_list = 1
+let g:syntastic_check_on_open = 1
+let g:syntastic_check_on_wq = 0
