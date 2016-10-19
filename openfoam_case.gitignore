@@ -1,0 +1,6 @@
+[0-9]*/
+#first case
+!0
+/constant/polyMesh/*
+!/constant/polyMesh/blockMeshDict
+/postProcessing/
