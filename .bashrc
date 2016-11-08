@@ -115,13 +115,13 @@ if ! shopt -oq posix; then
     . /etc/bash_completion
   fi
 fi
-alias of240='source $HOME/OpenFOAM/OpenFOAM-2.4.0/etc/bashrc WM_NCOMPPROCS=8'
+# alias of240='source $HOME/OpenFOAM/OpenFOAM-2.4.0/etc/bashrc WM_NCOMPPROCS=8'
+#
+# export ParaView_DIR=/home/kurenaif/OpenFOAM/ThirdParty-2.4.0/platforms/linux64Gcc/ParaView-4.1.0
+# export PATH=$ParaView_DIR/bin:$PATH
+# export PV_PLUGIN_PATH=$FOAM_LIBBIN/paraview-4.1
 
-export ParaView_DIR=/home/kurenaif/OpenFOAM/ThirdParty-2.4.0/platforms/linux64Gcc/ParaView-4.1.0
-export PATH=$ParaView_DIR/bin:$PATH
-export PV_PLUGIN_PATH=$FOAM_LIBBIN/paraview-4.1
-
-of240
+# of240
 
 alias pbcopy='xsel --clipboard --input'
 alias pbpaste='xsel --clipboard --output'

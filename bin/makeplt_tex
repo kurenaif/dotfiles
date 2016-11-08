@@ -3,7 +3,31 @@ PLTNAME=$(basename $1)
 DIR=$(dirname $1)
 gnuplot<<EOF
 cd "$DIR"
-set terminal tikz standalone
-set out "${PLTNAME%plt}tex"
+set terminal epslatex color 
+set output "${PLTNAME%plt}tex"
 load "$PLTNAME"
 EOF
+
+
+cat << EOS > main.tex
+\documentclass[a4j,10pt]{jsarticle}
+ 
+\usepackage[dvipdfmx]{graphicx}
+ 
+\begin{document}
+\begin{figure}[htb]
+	\centering
+	\input{${PLTNAME%plt}tex}
+	\caption{${PLTNAME%.plt}}
+	\label{fig:${PLTNAME%.plt}}
+\end{figure}
+ 
+\end{document}
+EOS
+
+platex main.tex
+dvipdfmx main.dvi
+
+rm main.dvi main.log main.aux
+mkdir source
+mv plot.eps plot.tex main.tex source
