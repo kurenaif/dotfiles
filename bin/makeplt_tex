@@ -9,7 +9,7 @@ load "$PLTNAME"
 EOF
 
 
-cat << EOS > main.tex
+cat << EOS > build/main.tex
 \documentclass[a4j,10pt]{jsarticle}
  
 \usepackage[dvipdfmx]{graphicx}
@@ -25,9 +25,10 @@ cat << EOS > main.tex
 \end{document}
 EOS
 
+mv ${PLTNAME%plt}eps ${PLTNAME%plt}tex main.tex source
+cd source
+
 platex main.tex
 dvipdfmx main.dvi
 
-rm main.dvi main.log main.aux
-mkdir source
-mv plot.eps plot.tex main.tex source
+mv main.pdf ..
