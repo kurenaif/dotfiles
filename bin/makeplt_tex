@@ -11,7 +11,7 @@ EOF
 
 OUTDIR=source_${PLTNAME%.plt}
 
-[ ! -e $OUTDIR] &&  mkdir $OUTDIR
+mkdir -p $OUTDIR
 
 cat << EOS > $OUTDIR/main.tex
 \documentclass[a4j,10pt]{jsarticle}
