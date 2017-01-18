@@ -40,3 +40,4 @@ cd $OUTDIR
 make
 
 mv main.pdf ..
+xdg-open ../main.pdf
