@@ -1,4 +1,5 @@
 #!/bin/sh
+set -e
 PLTNAME=$(basename $1)
 DIR=$(dirname $1)
 gnuplot<<EOF
@@ -10,7 +11,7 @@ EOF
 
 OUTDIR=source_${PLTNAME%.plt}
 
-mkdir $OUTDIR
+[ ! -e $OUTDIR] &&  mkdir $OUTDIR
 
 cat << EOS > $OUTDIR/main.tex
 \documentclass[a4j,10pt]{jsarticle}
