@@ -21,7 +21,7 @@ cat << EOS > $OUTDIR/main.tex
 \begin{figure}[htb]
 	\centering
 	\input{${PLTNAME%plt}tex}
-	\caption{${PLTNAME%.plt}}
+	\caption{caption}
 	\label{fig:${PLTNAME%.plt}}
 \end{figure}
  
