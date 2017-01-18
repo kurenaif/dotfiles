@@ -62,6 +62,7 @@ NeoBundle 'szw/vim-tags'
 NeoBundle 'scrooloose/syntastic'
 NeoBundle 'pmsorhaindo/syntastic-local-eslint.vim'
 
+
 call neobundle#end()
 
 colorscheme desert
@@ -139,7 +140,8 @@ augroup END
 "Fortran設定
 let fortran_free_source=1
 let fortran_fold=1
-au! BufRead,BufNewFile *.f90 let b:fortran_do_enddo=1
+au BufRead,BufNewFile *.f90 let b:fortran_do_enddo=1
+au BufRead,BufNewFile *.plt set filetype=gnuplot
 
 "-------------------------------------------------------
 " 操作関連
@@ -455,8 +457,8 @@ let g:startify_bookmarks = [
 "caw.vim コメントアウト関連
 "-------------------------------------------------------
 " ,cで行の先頭にコメントをつけたり外したりできる
-nmap <Leader>c <Plug>(caw:i:toggle)
-vmap <Leader>c <Plug>(caw:i:toggle)
+nmap <Leader>c <Plug>(caw:hatpos:toggle)
+vmap <Leader>c <Plug>(caw:hatpos:toggle)
 
 "-------------------------------------------------------
 "Vim差分表示 http://deris.hatenablog.jp/entry/2013/12/15/235606
