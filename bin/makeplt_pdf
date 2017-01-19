@@ -1,4 +1,5 @@
 #!/bin/sh
+set -e
 
 for i in `seq 1 ${#}`
 do
@@ -12,3 +13,4 @@ load "$PLTNAME"
 EOF
 shift
 done
+xdg-open "${PLTNAME%plt}pdf"
