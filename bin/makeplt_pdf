@@ -13,4 +13,3 @@ load "$PLTNAME"
 EOF
 shift
 done
-xdg-open "${PLTNAME%plt}pdf"
