@@ -21,4 +21,5 @@ if [ `ls | grep -c "\.plt"` -eq 0 ]; then
 	exit 1
 fi
 
+okular main.pdf &
 autoexec *.plt omake
