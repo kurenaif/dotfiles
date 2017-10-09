@@ -2,13 +2,27 @@
 	deafult = matching
 	default = matching
 [alias]
+	alias = !git config --get-regexp '^alias\\.' | sed 's/alias\\.\\([^ ]*\\) \\(.*\\)/\\1\\\t => \\2/' | sort
+	a = !git add -A && git status
+	f = "!git ls-files | grep -i"
+	diffr  = "!f() { git diff "$1"^.."$1"; }; f"
+	dr  = "!f() { git diff "$1"^.."$1"; }; f"
+	lc  = "!f() { git ll "$1"^.."$1"; }; f"
+	pb  = "!f() { git checkout -b "$1" origin/"$1"; }; f"
+	cam = commit --amend
+	wip = commit -m 'wip'
 	co = checkout
 	cm = commit
 	st = status
+	stt = status -uno
 	br = branch
+	ll = log --pretty=format:"%C(yellow)%h%Cred%d\\ %Creset%s%Cblue\\ [%cn]" --decorate --numstat
 	graph = log --graph --date=short --decorate=short --pretty=format:'%Cgreen%h %Creset%cd %Cblue%cn %Cred%d %Creset%s'
 	gr = log --graph --date=short --decorate=short --pretty=format:'%Cgreen%h %Creset%cd %Cblue%cn %Cred%d %Creset%s'
 	cancel = reset --soft HEAD^
 	zip = !git archive --format=zip HEAD > `git symbolic-ref --short HEAD`.zip
+	drag = pull --rebase
 [credential]
 	helper = cache --timeout=3600
+[core]
+	editor = vim
