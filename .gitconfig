@@ -2,13 +2,14 @@
 	deafult = matching
 	default = matching
 [alias]
+	search-hash = !git log --graph --pretty=format:'%d %an: %s %ar %h' | peco | awk -F ' ' '{ print $NF }'
 	alias = !git config --get-regexp '^alias\\.' | sed 's/alias\\.\\([^ ]*\\) \\(.*\\)/\\1\\\t => \\2/' | sort
 	a = !git add -A && git status
 	f = "!git ls-files | grep -i"
 	diffr  = "!f() { git diff "$1"^.."$1"; }; f"
 	dr  = "!f() { git diff "$1"^.."$1"; }; f"
 	lc  = "!f() { git ll "$1"^.."$1"; }; f"
-	pb  = "!f() { git checkout -b "$1" origin/"$1"; }; f"
+        pb = !git branch -a | peco --query 'remotes/ ' --prompt 'GIT REMOTE BRANCH>' | head -n 1 | sed 's/^\\*\\s*//' | sed 's/remotes\\/[^\\/]*\\/\\(\\S*\\)/\\1 \\0/'
 	cam = commit --amend
 	wip = commit -m 'wip'
 	co = checkout
@@ -22,7 +23,5 @@
 	cancel = reset --soft HEAD^
 	zip = !git archive --format=zip HEAD > `git symbolic-ref --short HEAD`.zip
 	drag = pull --rebase
-[credential]
-	helper = cache --timeout=3600
 [core]
 	editor = vim

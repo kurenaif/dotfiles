@@ -1,11 +1,6 @@
 # Theme based on Bira theme from oh-my-zsh: https://github.com/robbyrussell/oh-my-zsh/blob/master/themes/bira.zsh-theme
 # Some code stolen from oh-my-fish clearance theme: https://github.com/bpinto/oh-my-fish/blob/master/themes/clearance/
 
-set -g fish_prompt_git_status_staged "o"
-set -g fish_prompt_git_status_conflicted 'x'
-set -g fish_prompt_git_status_changed '+'
-set -g fish_prompt_git_status_untracked "('x')"
-set -g fish_prompt_git_status_clean "✔"
 
 function __user_host
   set -l content 
@@ -56,6 +51,12 @@ function __ruby_version
 end
 
 function fish_prompt
+  set -g fish_prompt_git_status_staged "o"
+  set -g fish_prompt_git_status_conflicted 'x'
+  set -g fish_prompt_git_status_changed '+'
+  set -g fish_prompt_git_status_untracked "?"
+  set -g fish_prompt_git_status_clean "✔"
+
   if [ $status -eq 0 ]
     set status_face (set_color green)"(*'-') < "
   else
