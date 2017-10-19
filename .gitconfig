@@ -9,7 +9,7 @@
 	diffr  = "!f() { git diff "$1"^.."$1"; }; f"
 	dr  = "!f() { git diff "$1"^.."$1"; }; f"
 	lc  = "!f() { git ll "$1"^.."$1"; }; f"
-        pb = !git branch -a | peco --query 'remotes/ ' --prompt 'GIT REMOTE BRANCH>' | head -n 1 | sed 's/^\\*\\s*//' | sed 's/remotes\\/[^\\/]*\\/\\(\\S*\\)/\\1 \\0/'
+	pb = !git co -b `git branch -a | peco --query 'remotes/ ' --prompt 'GIT REMOTE BRANCH>' | head -n 1 | sed 's/^\\*\\s*//' | sed 's/remotes\\/[^\\/]*\\/\\(\\S*\\)/\\1 \\0/'`
 	cam = commit --amend
 	wip = commit -m 'wip'
 	co = checkout
@@ -25,3 +25,6 @@
 	drag = pull --rebase
 [core]
 	editor = vim
+[user]
+	email = antyobido@gmail.com
+	name = kurenaif
