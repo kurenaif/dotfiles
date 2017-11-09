@@ -1,0 +1,25 @@
+#/bin/sh
+#amkpt: Auto MaKe Plot Tex
+
+
+function usage {
+    cat <<EOF
+usage: $0
+run in dir which have *.plt
+you have to oamke --install and some settings
+It's a substitute for "omake -P"
+EOF
+}
+
+if [ $# -ne 0 ]; then
+	usage
+	exit 1
+fi
+
+if [ `ls | grep -c "\.plt"` -eq 0 ]; then
+	usage
+	exit 1
+fi
+
+okular main.pdf &
+autoexec *.plt omake
