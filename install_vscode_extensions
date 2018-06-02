@@ -1,0 +1,9 @@
+#!/bin/bash
+packagelist=(
+    "extr0py.vscode-relative-line-numbers"
+    "rafaelmaiolla.remote-vscode"
+    "vscodevim.vim"
+)
+for list in ${packagelist[@]}; do
+    code --install-extension ${list}
+done

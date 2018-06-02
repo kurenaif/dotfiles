@@ -1,4 +1,5 @@
 #!/bin/bash
+
 set -ux
 
 git submodule update --init --recursive
