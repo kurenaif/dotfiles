@@ -2,8 +2,10 @@ set -ux
 
 SCRIPT_DIR=$(cd $(dirname $0); pwd)
 
+# install packages
+
 # fish
-# mkdir -p ~/.config/fish/functions
+mkdir -p ~/.config/fish/functions
 ln -s ${SCRIPT_DIR}/fish_prompt.fish ~/.config/fish/functions 
 ln -s ${SCRIPT_DIR}/informative_git_prompt/__informative_git_prompt.fish ~/.config/fish/functions 
 
