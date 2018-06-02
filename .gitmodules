@@ -1,0 +1,3 @@
+[submodule "informative_git_prompt"]
+	path = informative_git_prompt
+	url = https://github.com/mariuszs/informative_git_prompt
