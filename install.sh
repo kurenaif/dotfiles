@@ -1,6 +1,8 @@
 #!/bin/bash
 set -ux
 
+git submodule update --init --recursive
+
 SCRIPT_DIR=$(cd $(dirname $0); pwd)
 
 # install packages
