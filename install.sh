@@ -1,8 +1,26 @@
+#!/bin/bash
 set -ux
 
 SCRIPT_DIR=$(cd $(dirname $0); pwd)
 
 # install packages
+
+packagelist=(
+     "build-essential"
+     "git"
+     "vim"
+     "ibus-mozc"
+     "tmux"
+     "fish"
+)
+
+echo "start apt-get install apps..."
+for list in ${packagelist[@]}; do
+    sudo apt-get install -y ${list}
+done
+
+sudo apt-get update
+sudo apt-get upgrade
 
 # fish
 mkdir -p ~/.config/fish/functions
