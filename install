@@ -40,5 +40,5 @@ ln -s ${SCRIPT_DIR}/.gitconfig ~/.gitconfig
 ln -s ${SCRIPT_DIR}/.tmux.conf ~/.tmux.conf
 
 # bash
-echo "-------my setting--------" >> ~/.bashrc
+echo "#-------my setting--------" >> ~/.bashrc
 echo "export $SCRIPT_DIR/.bashrc" >> ~/.bashrc
