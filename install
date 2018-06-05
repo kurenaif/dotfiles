@@ -41,4 +41,4 @@ ln -s ${SCRIPT_DIR}/.tmux.conf ~/.tmux.conf
 
 # bash
 echo "#-------my setting--------" >> ~/.bashrc
-echo "export $SCRIPT_DIR/.bashrc" >> ~/.bashrc
+echo "source $SCRIPT_DIR/.bashrc" >> ~/.bashrc
