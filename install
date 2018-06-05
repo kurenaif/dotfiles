@@ -34,7 +34,7 @@ ln -s ${SCRIPT_DIR}/informative_git_prompt/__informative_git_prompt.fish ~/.conf
 ln -s ${SCRIPT_DIR}/.gitconfig ~/.gitconfig 
 
 # vim
-ln -s ${SCRIPT_DIR}/.vimrc ~/.vimrc
+# ln -s ${SCRIPT_DIR}/.vimrc ~/.vimrc
 
 # tmux
 ln -s ${SCRIPT_DIR}/.tmux.conf ~/.tmux.conf
