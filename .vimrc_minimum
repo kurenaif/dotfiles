@@ -1,0 +1,81 @@
+filetype plugin on
+
+let mapleader = ","
+" 一行に長い文章を書いていても自動折り返しをしない
+set textwidth=0
+" スワップファイル作らない
+set noswapfile
+set tabstop=4
+set shiftwidth=4
+set hidden
+set number
+set title
+set laststatus=2
+set showcmd
+set ruler
+set clipboard+=unnamed
+set display=lastline
+set ambiwidth=double
+set shellslash
+set ignorecase
+set smartcase
+set incsearch
+set wildmenu
+set whichwrap=b,s,[,],<,>
+set wildmode=list:longest
+set backspace=indent,eol,start
+set splitbelow
+set splitright
+
+set nocp
+
+if &t_Co > 2 || has("gui_running")
+	syntax on
+	set hlsearch
+endif
+
+set printoptions=number:y
+"新しい行のインデントを現在行と同じにする
+set autoindent
+"新しい行を作ったときに高度な自動インデントを行う
+set smartindent
+"行頭の余白内でTabを打ち込むと'shiftwidth'の数だけインデントする
+set smarttab
+"カーソルと行頭、行末でとまらないようにする
+set whichwrap=b,s,h,l,<,>,[,]
+
+
+"バイナリ編集(xxd)モード(vim -b での起動、もしくは *.bin ファイルを開くと発動します)
+augroup BinaryXXD
+  autocmd!
+  autocmd BufReadPre  *.bin let &binary =1
+  autocmd BufReadPost * if &binary | silent %!xxd -g 1
+  autocmd BufReadPost * set ft=xxd | endif
+  autocmd BufWritePre * if &binary | %!xxd -r | endif
+  autocmd BufWritePost * if &binary | silent %!xxd -g 1
+  autocmd BufWritePost * set nomod | endif
+augroup END
+
+"Fortran設定
+let fortran_free_source=1
+let fortran_fold=1
+au BufRead,BufNewFile *.f90 let b:fortran_do_enddo=1
+au BufRead,BufNewFile *.plt set filetype=gnuplot
+
+"-------------------------------------------------------
+" 操作関連
+"-------------------------------------------------------
+map <silent> <S-Insert> "*p
+imap <silent> <S-Insert> <Esc>"*pa
+"--- <F6>  タイムスタンプを挿入してinsertモードへ移行 ----
+nmap <F6> <ESC>i<C-R>=strftime("%Y/%m/%d (%a) %H:%M")<CR><CR>
+"ESC二回でハイライト削除
+nnoremap <ESC><ESC> :nohlsearch<CR>
+"F5でQuickrun
+nmap <F5> <ESC>:QuickRun<CR>
+
+nmap <Leader>C <ESC>:w<CR>:SyntasticCheck<CR>
+" F12で相対行表示
+nnoremap <F12> :<C-u>setlocal relativenumber!<CR>
+
+imap <c-f> <esc>
