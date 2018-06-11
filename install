@@ -44,6 +44,7 @@ echo "start fisherman install apps..."
 for list in ${packagelist[@]}; do
     fisher ${list}
 done
+cp fish_user_key_bindings.fish ~/.config/fish/functions/
 
 # git
 ln -s ${SCRIPT_DIR}/.gitconfig ~/.gitconfig 
