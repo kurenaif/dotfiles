@@ -16,8 +16,3 @@
     cursor_color = "#c6c8d1"
     foreground_color = "#c6c8d1"
     palette = "#2a3158:#e27878:#89b8c2:#e4aa80:#84a0c6:#d1a8ad:#adc1cb:#c6c8d1:#444b71:#e2a478:#b4be82:#d8e599:#686f9a:#673e43:#444b71:#d4d5db"
-  [[iceberg]]
-    background_color = "#161821"
-    cursor_color = "#c6c8d1"
-    foreground_color = "#c6c8d1"
-    palette = "#2a3158:#e27878:#89b8c2:#e4aa80:#84a0c6:#d1a8ad:#adc1cb:#c6c8d1:#444b71:#e2a478:#b4be82:#d8e599:#3e445e:#673e43:#444b71:#d4d5db"
