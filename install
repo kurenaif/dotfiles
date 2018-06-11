@@ -39,6 +39,7 @@ fisherman_list=(
 	"gitignore"
 	"tsu-nera/fish-peco_recentd"
 	"oh-my-fish/plugin-balias"
+	"edc/bass"
 )
 echo "start fisherman install apps..."
 for list in ${packagelist[@]}; do
