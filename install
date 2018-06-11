@@ -29,8 +29,21 @@ sudo apt-get upgrade
 
 # fish
 mkdir -p ~/.config/fish/functions
+# my-theme
 ln -s ${SCRIPT_DIR}/fish_prompt.fish ~/.config/fish/functions 
 ln -s ${SCRIPT_DIR}/informative_git_prompt/__informative_git_prompt.fish ~/.config/fish/functions 
+# fisherman
+curl -Lo ~/.config/fish/functions/fisher.fish --create-dirs git.io/fisherman
+fisherman_list=(
+	"z"
+	"gitignore"
+	"tsu-nera/fish-peco_recentd"
+	"oh-my-fish/plugin-balias"
+)
+echo "start fisherman install apps..."
+for list in ${packagelist[@]}; do
+    fisher ${list}
+done
 
 # git
 ln -s ${SCRIPT_DIR}/.gitconfig ~/.gitconfig 
