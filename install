@@ -40,6 +40,7 @@ fisherman_list=(
 	"gitignore"
 	"tsu-nera/fish-peco_recentd"
 	"oh-my-fish/plugin-balias"
+	"oh-my-fish/plugin-peco"
 	"edc/bass"
 )
 echo "start fisherman install apps..."
