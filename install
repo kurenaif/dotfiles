@@ -19,6 +19,7 @@ packagelist=(
      "cgdb"
      "guake"
      "terminator"
+	 "curl"
 )
 
 echo "start apt-get install apps..."
@@ -52,7 +53,7 @@ if [ -f ~/.config/fish/functions/fish_user_key_bindings.fish ];then
 	cp fish_user_key_bindings.fish fish_user_key_bindings.fish.bak
 	rm fish_user_key_bindings.fish 
 fi
-ln -s fish_user_key_bindings.fish ~/.config/fish/functions/
+ln -s ${SCRIPT_DIR}/fish_user_key_bindings.fish ~/.config/fish/functions/
 
 # git
 ln -s ${SCRIPT_DIR}/.gitconfig ~/.gitconfig 
