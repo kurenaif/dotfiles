@@ -17,7 +17,8 @@ packagelist=(
      "fish"
      "htop"
      "cgdb"
-	 "guake"
+     "guake"
+     "terminator"
 )
 
 echo "start apt-get install apps..."
