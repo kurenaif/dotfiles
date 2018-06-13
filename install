@@ -48,7 +48,11 @@ echo "start fisherman install apps..."
 for list in ${packagelist[@]}; do
     fisher ${list}
 done
-cp fish_user_key_bindings.fish ~/.config/fish/functions/
+if [ -f ~/.config/fish/functions/fish_user_key_bindings.fish ];then
+	cp fish_user_key_bindings.fish fish_user_key_bindings.fish.bak
+	rm fish_user_key_bindings.fish 
+fi
+ln -s fish_user_key_bindings.fish ~/.config/fish/functions/
 
 # git
 ln -s ${SCRIPT_DIR}/.gitconfig ~/.gitconfig 
@@ -59,6 +63,13 @@ ln -s ${SCRIPT_DIR}/.vimrc_minimum ~/.vimrc
 # tmux
 ln -s ${SCRIPT_DIR}/.tmux.conf ~/.tmux.conf
 
+# terminator
+ln -s ${SCRIPT_DIR}/terminator_config ~/.config/terminator/config
+
 # bash
+if [ ! -f ~/.bashrc.bak ];then
+	cp ~/.bashrc ~/.bashrc.bak
+fi
+cp ~/.bashrc.bak ~/.bashrc
 echo "#-------my setting--------" >> ~/.bashrc
 echo "source $SCRIPT_DIR/.bashrc" >> ~/.bashrc
