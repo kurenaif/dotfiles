@@ -20,6 +20,7 @@ packagelist=(
      "guake"
      "terminator"
 	 "curl"
+	 "python3-pip"
 )
 
 echo "start apt-get install apps..."
