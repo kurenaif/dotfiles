@@ -60,7 +60,9 @@ ln -s ${SCRIPT_DIR}/fish_user_key_bindings.fish ~/.config/fish/functions/
 ln -s ${SCRIPT_DIR}/.gitconfig ~/.gitconfig 
 
 # vim
-ln -s ${SCRIPT_DIR}/.vimrc_minimum ~/.vimrc
+# ln -s ${SCRIPT_DIR}/.vimrc_minimum ~/.vimrc
+# nvim
+ln -s ${SCRIPT_DIR}/nvim ~/.config/nvim
 
 # tmux
 ln -s ${SCRIPT_DIR}/.tmux.conf ~/.tmux.conf
