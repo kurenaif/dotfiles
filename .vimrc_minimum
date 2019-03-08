@@ -79,3 +79,6 @@ nmap <Leader>C <ESC>:w<CR>:SyntasticCheck<CR>
 nnoremap <F12> :<C-u>setlocal relativenumber!<CR>
 
 imap <c-f> <esc>
+
+set list
+set listchars=tab:»-,trail:-,extends:»,precedes:«,nbsp:%
