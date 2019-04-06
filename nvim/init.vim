@@ -12,6 +12,7 @@ set backspace=indent,eol,start
 set title
 set list
 set listchars=tab:>-,trail:-,extends:>,precedes:<,nbsp:%
+set number relativenumber
 
 nnoremap <ESC><ESC> :nohlsearch<CR>
 nnoremap <F12> :<C-u>setlocal relativenumber!<CR>
