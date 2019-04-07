@@ -15,3 +15,24 @@ let g:deoplete#sources#clang#clang_header = '/usr/include/clang'
 '''
 on_ft = ['c', 'cpp', 'cmake']
 depends = ['deoplete.nvim']
+
+[[plugins]]
+repo = 'zchee/deoplete-jedi'
+on_ft = 'python'
+hook_add = '''
+    let g:deoplete#sources#jedi#python_path = '/usr/bin/python3.6'
+'''
+
+[[plugins]]
+repo = 'rust-lang/rust.vim'
+on_ft = 'rust'
+hook_add = '''
+source ~/.config/nvim/plugins/rust.rc.vim
+'''
+
+[[plugins]]
+repo = 'neoclide/coc.nvim'
+build = 'coc#util#install()'
+hook_add = '''
+source ~/.config/nvim/plugins/coc.rc.vim
+'''

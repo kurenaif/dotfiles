@@ -25,3 +25,4 @@ call deoplete#custom#set('_', 'converters', [
 \ ])
 
 let g:deoplete#enable_camel_case = 1
+set completeopt-=preview

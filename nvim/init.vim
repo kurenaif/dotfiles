@@ -2,7 +2,7 @@ set number
 set autoindent
 set tabstop=4
 set shiftwidth=4
-set expandtab
+set noexpandtab
 set splitright
 set clipboard+=unnamedplus
 set hls
@@ -10,9 +10,11 @@ set whichwrap=b,s,[,],<,>
 set wildmode=list:longest
 set backspace=indent,eol,start
 set title
-set list
+" set list
 set listchars=tab:>-,trail:-,extends:>,precedes:<,nbsp:%
 set number relativenumber
+set splitbelow
+let mapleader = ","
 
 nnoremap <ESC><ESC> :nohlsearch<CR>
 nnoremap <F12> :<C-u>setlocal relativenumber!<CR>
@@ -69,3 +71,5 @@ syntax enable
 
 runtime! options.rc.vim
 runtime! keymap.rc.vim
+
+call map(dein#check_clean(), "delete(v:val, 'rf')")

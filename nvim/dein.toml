@@ -3,6 +3,9 @@ repo = 'Shougo/dein.vim'
 
 [[plugins]]
 repo = 'thinca/vim-quickrun'
+hook_add = '''
+source ~/.config/nvim/plugins/quickrun.rc.vim
+'''
 
 [[plugins]]
 repo = 'Shougo/context_filetype.vim'
@@ -18,3 +21,17 @@ repo = 'airblade/vim-gitgutter'
 
 [[plugins]]
 repo = 'tpope/vim-fugitive'
+
+[[plugins]]
+repo = 'Shougo/vimproc.vim'
+build = 'make'
+
+[[plugins]]
+repo = 'tyru/caw.vim'
+hook_add = '''
+source ~/.config/nvim/plugins/caw.rc.vim
+'''
+
+[[plugins]]
+repo = 'Shougo/context_filetype.vim'
+
