@@ -1,11 +1,3 @@
-[[plugins]]
-repo = 'Shougo/deoplete.nvim'
-depends = 'context_filetype.vim'
-if = "has('nvim')"
-on_i = 1
-hook_source = '''
-source ~/.config/nvim/plugins/deoplete.rc.vim
-'''
 
 [[plugins]]
 repo = 'zchee/deoplete-clang'
@@ -32,6 +24,9 @@ source ~/.config/nvim/plugins/rust.rc.vim
 
 [[plugins]]
 repo = 'neoclide/coc.nvim'
+depends = 'deoplete.nvim'
+on_ft = 'rust'
+on_i = 1
 build = 'coc#util#install()'
 hook_add = '''
 source ~/.config/nvim/plugins/coc.rc.vim

@@ -26,3 +26,4 @@ call deoplete#custom#set('_', 'converters', [
 
 let g:deoplete#enable_camel_case = 1
 set completeopt-=preview
+set runtimepath+=~/.cache/nvim/dein/repos/github.com/Shougo/deoplte.nvim/
