@@ -12,7 +12,8 @@
 	pb = !git co -b `git branch -a | peco --query 'remotes/ ' --prompt 'GIT REMOTE BRANCH>' | head -n 1 | sed 's/^\\*\\s*//' | sed 's/remotes\\/[^\\/]*\\/\\(\\S*\\)/\\1 \\0/'`
 	cam = commit --amend
 	wip = commit -m 'wip'
-	co = "!f() { git checkout "$1" && git branch; }; f"
+	co = checkout
+	cob = "!f() { git checkout "$1" && git branch; }; f"
 	cm = commit
 	st = status
 	stt = status -uno
