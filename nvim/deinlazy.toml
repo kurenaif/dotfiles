@@ -30,9 +30,22 @@ hook_add = '''
 source ~/.config/nvim/plugins/rust.rc.vim
 '''
 
+# [[plugins]]
+# repo = 'neoclide/coc.nvim'
+# build = 'coc#util#install()'
+# on_ft = 'rust'
+# hook_add = '''
+# source ~/.config/nvim/plugins/coc.rc.vim
+# '''
+
 [[plugins]]
-repo = 'neoclide/coc.nvim'
-build = 'coc#util#install()'
+repo = 'autozimu/LanguageClient-neovim'
+rev = 'next'
+build = 'bash install.sh'
+on_ft = 'javascript'
 hook_add = '''
-source ~/.config/nvim/plugins/coc.rc.vim
+set hidden
+let g:LanguageClient_serverCommands = {
+    \ 'javascript': ['javascript-typescript-stdio'],
+    \ }
 '''

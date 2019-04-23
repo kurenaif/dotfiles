@@ -105,7 +105,6 @@ let g:lightline = {
       \ }
 
 
-
 " Using CocList
 " Show all diagnostics
 nnoremap <silent> <space>a  :<C-u>CocList diagnostics<cr>

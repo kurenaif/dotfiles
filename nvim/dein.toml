@@ -12,6 +12,9 @@ repo = 'Shougo/context_filetype.vim'
 
 [[plugins]]
 repo = 'Shougo/denite.nvim'
+hook_add = '''
+source ~/.config/nvim/plugins/denite.rc.vim
+'''
 
 [[plugins]]
 repo = 'tpope/vim-surround'
@@ -34,4 +37,3 @@ source ~/.config/nvim/plugins/caw.rc.vim
 
 [[plugins]]
 repo = 'Shougo/context_filetype.vim'
-
