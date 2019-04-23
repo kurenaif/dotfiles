@@ -41,7 +41,6 @@ repo = 'Shougo/context_filetype.vim'
 [[plugins]]
 repo = 'Shougo/deoplete.nvim'
 depends = 'context_filetype.vim'
-if = "has('nvim')"
 hook_source = '''
 source ~/.config/nvim/plugins/deoplete.rc.vim
 '''

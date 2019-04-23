@@ -16,6 +16,16 @@ set number relativenumber
 set splitbelow
 let mapleader = ","
 
+augroup BinaryXXD
+  autocmd!
+  autocmd BufReadPre  *.bin let &binary =1
+  autocmd BufReadPost * if &binary | silent %!xxd -g 1
+  autocmd BufReadPost * set ft=xxd
+  autocmd BufWritePre * if &binary | %!xxd -r 
+  autocmd BufWritePost * if &binary | silent %!xxd -g 1
+  autocmd BufWritePost * set nomod
+augroup END
+
 nnoremap <ESC><ESC> :nohlsearch<CR>
 nnoremap <F12> :<C-u>setlocal relativenumber!<CR>
 imap <c-f> <esc>

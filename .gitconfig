@@ -5,6 +5,7 @@
 	search-hash = !git log --graph --pretty=format:'%d %an: %s %ar %h' | peco | awk -F ' ' '{ print $NF }'
 	alias = !git config --get-regexp '^alias\\.' | sed 's/alias\\.\\([^ ]*\\) \\(.*\\)/\\1\\\t => \\2/' | sort
 	a = !git add -A && git status
+	au = !git add -u && git status
 	f = "!git ls-files | grep -i"
 	diffr  = "!f() { git diff "$1"^.."$1"; }; f"
 	dr  = "!f() { git diff "$1"^.."$1"; }; f"
