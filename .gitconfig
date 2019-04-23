@@ -13,6 +13,7 @@
 	cam = commit --amend
 	wip = commit -m 'wip'
 	co = checkout
+	cob = "!f() { git checkout -b "$1" && git branch; }; f"
 	cm = commit
 	st = status
 	stt = status -uno
