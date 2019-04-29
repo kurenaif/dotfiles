@@ -8,3 +8,4 @@ let g:quickrun_config = {
 \}
 au FileType qf nnoremap <silent><buffer>q :quit<CR><Paste>
 nnoremap <expr><silent> <C-c> quickrun#is_running() ? quickrun#sweep_sessions() : "\<C-c>"
+

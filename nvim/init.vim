@@ -10,7 +10,7 @@ set whichwrap=b,s,[,],<,>
 set wildmode=list:longest
 set backspace=indent,eol,start
 set title
-" set list
+set list
 set listchars=tab:>-,trail:-,extends:>,precedes:<,nbsp:%
 set number relativenumber
 set splitbelow
@@ -18,12 +18,12 @@ let mapleader = ","
 
 augroup BinaryXXD
   autocmd!
-  autocmd BufReadPre  *.bin let &binary =1
-  autocmd BufReadPost * if &binary | silent %!xxd -g 1
-  autocmd BufReadPost * set ft=xxd
-  autocmd BufWritePre * if &binary | %!xxd -r 
-  autocmd BufWritePost * if &binary | silent %!xxd -g 1
-  autocmd BufWritePost * set nomod
+  autocmd BufReadPost * if &binary | silent !xxd -g 1
+  autocmd BufReadPost * set ft=xxd | endif
+  autocmd BufWritePre * if &binary | !xxd -r
+  autocmd BufWritePre * endif
+  autocmd BufWritePost * if &binary | silent !xxd -g 1
+  autocmd BufWritePost * set nomod | endif
 augroup END
 
 nnoremap <ESC><ESC> :nohlsearch<CR>
@@ -34,7 +34,9 @@ if &compatible
     set nocompatible
 endif
 
+
 augroup MyAutoCmd
+	autocmd BufRead,BufNewFile *.rs setfiletype rust
     autocmd!
 augroup END
 
@@ -77,7 +79,6 @@ if dein#check_install()
 endif
 
 filetype plugin indent on
-syntax enable
 
 runtime! options.rc.vim
 runtime! keymap.rc.vim

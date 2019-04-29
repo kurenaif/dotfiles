@@ -1,7 +1,4 @@
 [[plugins]]
-repo = 'Shougo/dein.vim'
-
-[[plugins]]
 repo = 'thinca/vim-quickrun'
 hook_add = '''
 source ~/.config/nvim/plugins/quickrun.rc.vim
@@ -9,6 +6,10 @@ source ~/.config/nvim/plugins/quickrun.rc.vim
 
 [[plugins]]
 repo = 'Shougo/context_filetype.vim'
+
+[[plugins]]
+repo = 'osyo-manga/vim-precious'
+depends = ['context_filetype.vim']
 
 [[plugins]]
 repo = 'Shougo/denite.nvim'
@@ -39,8 +40,4 @@ source ~/.config/nvim/plugins/caw.rc.vim
 repo = 'Shougo/context_filetype.vim'
 
 [[plugins]]
-repo = 'Shougo/deoplete.nvim'
-depends = 'context_filetype.vim'
-hook_source = '''
-source ~/.config/nvim/plugins/deoplete.rc.vim
-'''
+repo = 'cespare/vim-toml'
