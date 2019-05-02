@@ -12,8 +12,3 @@ hook_add = '''
 source ~/.config/nvim/plugins/coc.rc.vim
 '''
 
-[[plugins]]
-repo =  'Shougo/unite.vim'
-
-[[plugins]]
-repo = 'Shougo/vimfiler'

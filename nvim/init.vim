@@ -10,7 +10,7 @@ set whichwrap=b,s,[,],<,>
 set wildmode=list:longest
 set backspace=indent,eol,start
 set title
-set list
+" set list
 set listchars=tab:>-,trail:-,extends:>,precedes:<,nbsp:%
 set number relativenumber
 set splitbelow

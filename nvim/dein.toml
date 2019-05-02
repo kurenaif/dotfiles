@@ -52,3 +52,18 @@ repo = 'Townk/vim-autoclose'
 
 [[plugins]]
 repo = 'Yggdroot/indentLine'
+hook_add = '''
+source ~/.config/nvim/plugins/indetLine.rc.vim
+'''
+
+[[plugins]]
+repo =  'Shougo/unite.vim'
+
+[[plugins]]
+repo = 'Shougo/vimfiler'
+
+[[plugins]]
+repo = 'bronson/vim-trailing-whitespace'
+
+[[plugins]]
+repo = 'ctrlpvim/ctrlp.vim'
