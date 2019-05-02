@@ -28,6 +28,7 @@ augroup END
 
 nnoremap <ESC><ESC> :nohlsearch<CR>
 nnoremap <F12> :<C-u>setlocal relativenumber!<CR>
+nnoremap <leader>e :VimFilerExplorer<CR>
 imap <c-f> <esc>
 
 if &compatible

@@ -5,13 +5,6 @@ source ~/.config/nvim/plugins/quickrun.rc.vim
 '''
 
 [[plugins]]
-repo = 'Shougo/context_filetype.vim'
-
-[[plugins]]
-repo = 'osyo-manga/vim-precious'
-depends = ['context_filetype.vim']
-
-[[plugins]]
 repo = 'Shougo/denite.nvim'
 hook_add = '''
 source ~/.config/nvim/plugins/denite.rc.vim
@@ -39,14 +32,6 @@ source ~/.config/nvim/plugins/caw.rc.vim
 [[plugins]]
 repo = 'cespare/vim-toml'
 
-
-[[plugins]]
-repo = 'Shougo/deoplete.nvim'
-depends = 'context_filetype.vim'
-hook_add = '''
-source ~/.config/nvim/plugins/deoplete.rc.vim
-'''
-
 [[plugins]]
 repo = 'Townk/vim-autoclose'
 
@@ -62,8 +47,13 @@ repo =  'Shougo/unite.vim'
 [[plugins]]
 repo = 'Shougo/vimfiler'
 
-[[plugins]]
-repo = 'bronson/vim-trailing-whitespace'
 
 [[plugins]]
 repo = 'ctrlpvim/ctrlp.vim'
+
+[[plugins]]
+repo = 'Shougo/context_filetype.vim'
+
+[[plugins]]
+repo = 'osyo-manga/vim-precious'
+depends = ['context_filetype.vim']

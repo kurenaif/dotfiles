@@ -1,5 +1,6 @@
 [[plugins]]
 repo = 'rust-lang/rust.vim'
+on_ft = ['rust']
 hook_add = '''
 source ~/.config/nvim/plugins/rust.rc.vim
 '''
@@ -12,3 +13,14 @@ hook_add = '''
 source ~/.config/nvim/plugins/coc.rc.vim
 '''
 
+[[plugins]]
+repo = 'Shougo/deoplete.nvim'
+on_i = 1
+depends = 'context_filetype.vim'
+hook_add = '''
+source ~/.config/nvim/plugins/deoplete.rc.vim
+'''
+
+[[plugins]]
+on_ft = ['rust', 'python']
+repo = 'bronson/vim-trailing-whitespace'
