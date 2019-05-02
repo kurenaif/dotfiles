@@ -9,7 +9,7 @@ source ~/.config/nvim/plugins/rust.rc.vim
 repo = 'Shougo/deoplete.nvim'
 on_i = 1
 depends = 'context_filetype.vim'
-hook_add = '''
+hook_source = '''
 source ~/.config/nvim/plugins/deoplete.rc.vim
 '''
 
