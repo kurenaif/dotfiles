@@ -37,7 +37,18 @@ source ~/.config/nvim/plugins/caw.rc.vim
 '''
 
 [[plugins]]
-repo = 'Shougo/context_filetype.vim'
+repo = 'cespare/vim-toml'
+
 
 [[plugins]]
-repo = 'cespare/vim-toml'
+repo = 'Shougo/deoplete.nvim'
+depends = 'context_filetype.vim'
+hook_add = '''
+source ~/.config/nvim/plugins/deoplete.rc.vim
+'''
+
+[[plugins]]
+repo = 'Townk/vim-autoclose'
+
+[[plugins]]
+repo = 'Yggdroot/indentLine'

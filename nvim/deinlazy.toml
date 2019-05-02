@@ -1,11 +1,4 @@
 [[plugins]]
-repo = 'Shougo/deoplete.nvim'
-depends = 'context_filetype.vim'
-hook_source = '''
-source ~/.config/nvim/plugins/deoplete.rc.vim
-'''
-
-[[plugins]]
 repo = 'rust-lang/rust.vim'
 hook_add = '''
 source ~/.config/nvim/plugins/rust.rc.vim
@@ -13,8 +6,14 @@ source ~/.config/nvim/plugins/rust.rc.vim
 
 [[plugins]]
 repo = 'neoclide/coc.nvim'
-on_ft = ['rust']
+on_ft = ['rust', 'python']
 build = 'coc#util#install()'
 hook_add = '''
 source ~/.config/nvim/plugins/coc.rc.vim
 '''
+
+[[plugins]]
+repo =  'Shougo/unite.vim'
+
+[[plugins]]
+repo = 'Shougo/vimfiler'
