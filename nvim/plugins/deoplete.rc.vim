@@ -15,5 +15,8 @@ inoremap <expr><S-TAB>  pumvisible() ? "\<C-p>" : "\<C-h>"
 " <BS>: close popup and delete backword char.
 inoremap <expr><BS> deoplete#smart_close_popup()."\<C-h>"
 
+nnoremap <leader>dd :call deoplete#disable()<CR>
+nnoremap <leader>de :call deoplete#enable()<CR>
+
 let g:deoplete#enable_camel_case = 1
 set completeopt-=preview

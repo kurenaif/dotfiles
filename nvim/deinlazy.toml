@@ -6,19 +6,20 @@ source ~/.config/nvim/plugins/rust.rc.vim
 '''
 
 [[plugins]]
-repo = 'neoclide/coc.nvim'
-on_ft = ['rust', 'python']
-build = 'coc#util#install()'
-hook_add = '''
-source ~/.config/nvim/plugins/coc.rc.vim
-'''
-
-[[plugins]]
 repo = 'Shougo/deoplete.nvim'
 on_i = 1
 depends = 'context_filetype.vim'
 hook_add = '''
 source ~/.config/nvim/plugins/deoplete.rc.vim
+'''
+
+[[plugins]]
+repo = 'neoclide/coc.nvim'
+depends = 'deoplete.nvim'
+on_ft = ['rust', 'python']
+build = 'coc#util#install()'
+hook_add = '''
+source ~/.config/nvim/plugins/coc.rc.vim
 '''
 
 [[plugins]]

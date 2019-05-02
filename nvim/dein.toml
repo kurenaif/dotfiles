@@ -47,10 +47,6 @@ repo =  'Shougo/unite.vim'
 [[plugins]]
 repo = 'Shougo/vimfiler'
 
-
-[[plugins]]
-repo = 'ctrlpvim/ctrlp.vim'
-
 [[plugins]]
 repo = 'Shougo/context_filetype.vim'
 
