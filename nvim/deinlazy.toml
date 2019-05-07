@@ -15,13 +15,8 @@ source ~/.config/nvim/plugins/deoplete.rc.vim
 
 [[plugins]]
 repo = 'neoclide/coc.nvim'
-depends = 'deoplete.nvim'
 on_ft = ['rust', 'python']
 build = 'coc#util#install()'
 hook_add = '''
 source ~/.config/nvim/plugins/coc.rc.vim
 '''
-
-[[plugins]]
-on_ft = ['rust', 'python']
-repo = 'bronson/vim-trailing-whitespace'

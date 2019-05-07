@@ -53,3 +53,7 @@ repo = 'Shougo/context_filetype.vim'
 [[plugins]]
 repo = 'osyo-manga/vim-precious'
 depends = ['context_filetype.vim']
+
+[[plugins]]
+repo = 'vim-scripts/Align'
+

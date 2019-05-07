@@ -1,6 +1,4 @@
-if exists(":CocInfo")
-	let g:deoplete#enable_at_startup = 1
-endif
+let g:deoplete#enable_at_startup = 1
 " <TAB>: completion.
 inoremap <silent><expr> <TAB>
       \ pumvisible() ? "\<C-n>" :
