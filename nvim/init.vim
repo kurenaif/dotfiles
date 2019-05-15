@@ -6,6 +6,7 @@ set noexpandtab
 set splitright
 set clipboard+=unnamedplus
 set hls
+set nowrap
 set whichwrap=b,s,[,],<,>
 set wildmode=list:longest
 set backspace=indent,eol,start
