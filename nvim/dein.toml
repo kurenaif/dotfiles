@@ -62,3 +62,11 @@ repo = 'tyru/open-browser.vim'
 hook_add = '''
 source ~/.config/nvim/plugins/open-browser.rc.vim
 '''
+
+[[plugins]]
+repo = 'junegunn/vim-emoji'
+
+[[plugins]]
+repo = 'pocari/vim-denite-emoji'
+
+
