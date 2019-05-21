@@ -37,5 +37,5 @@ repo = 'kannokanno/previm'
 on_ft = ['markdown','md']
 
 [[plugins]]
-repo = 'tyru/open-browser.vim'
+repo = 'iwataka/vim-markdown-ex'
 on_ft = ['markdown','md']

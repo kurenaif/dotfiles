@@ -57,3 +57,8 @@ depends = ['context_filetype.vim']
 [[plugins]]
 repo = 'vim-scripts/Align'
 
+[[plugins]]
+repo = 'tyru/open-browser.vim'
+hook_add = '''
+source ~/.config/nvim/plugins/open-browser.rc.vim
+'''
