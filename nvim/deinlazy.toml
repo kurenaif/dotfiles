@@ -21,12 +21,12 @@ hook_add = '''
 source ~/.config/nvim/plugins/coc.rc.vim
 '''
 
-[[plugins]]
-repo = 'plasticboy/vim-markdown'
-on_ft = ['markdown','md']
-hook_add = '''
-source ~/.config/nvim/plugins/vim-markdown.vim
-'''
+# [[plugins]]
+# repo = 'plasticboy/vim-markdown'
+# on_ft = ['markdown','md']
+# hook_add = '''
+# source ~/.config/nvim/plugins/vim-markdown.vim
+# '''
 
 [[plugins]]
 repo = 'joker1007/vim-markdown-quote-syntax'
