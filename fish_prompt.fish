@@ -72,9 +72,7 @@ function fish_prompt
 end
 
 function fish_right_prompt
-  set -l st $status
-
-  if [ $st != 0 ];
-    echo (set_color red) ↵ $st(set_color normal)
-  end
+    echo -n (set_color --bold black)
+	date "+%H:%M:%S"
+	echo -n (set color normal)
 end
