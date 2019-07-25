@@ -72,7 +72,7 @@ function fish_prompt
 end
 
 function fish_right_prompt
-    echo -n (set_color --bold black)
+    # echo -n (set_color --bold black)
 	date "+%H:%M:%S"
-	echo -n (set color normal)
+	# echo -n (set color normal)
 end
