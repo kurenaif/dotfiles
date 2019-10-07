@@ -22,6 +22,7 @@ packagelist=(
      "terminator"
 	 "curl"
 	 "python3-pip"
+	 "fzf"
 )
 
 echo "start apt-get install apps..."
