@@ -18,6 +18,7 @@ packagelist=(
      "htop"
      "cgdb"
      "guake"
+     "nvim"
      "terminator"
 	 "curl"
 	 "python3-pip"

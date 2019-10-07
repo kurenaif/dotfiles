@@ -1,25 +1,25 @@
-[[plugins]]
-repo = 'rust-lang/rust.vim'
-on_ft = ['rust']
-hook_add = '''
-source ~/.config/nvim/plugins/rust.rc.vim
-'''
+# [[plugins]]
+# repo = 'rust-lang/rust.vim'
+# on_ft = ['rust']
+# hook_add = '''
+# source ~/.config/nvim/plugins/rust.rc.vim
+# '''
 
-[[plugins]]
-repo = 'Shougo/deoplete.nvim'
-on_i = 1
-depends = 'context_filetype.vim'
-hook_source = '''
-source ~/.config/nvim/plugins/deoplete.rc.vim
-'''
+# [[plugins]]
+# repo = 'Shougo/deoplete.nvim'
+# on_i = 1
+# depends = 'context_filetype.vim'
+# hook_source = '''
+# source ~/.config/nvim/plugins/deoplete.rc.vim
+# '''
 
-[[plugins]]
-repo = 'neoclide/coc.nvim'
-on_ft = ['rust', 'python', 'yaml']
-build = 'coc#util#install()'
-hook_add = '''
-source ~/.config/nvim/plugins/coc.rc.vim
-'''
+# [[plugins]]
+# repo = 'neoclide/coc.nvim'
+# on_ft = ['rust', 'python', 'yaml']
+# build = 'coc#util#install()'
+# hook_add = '''
+# source ~/.config/nvim/plugins/coc.rc.vim
+# '''
 
 # [[plugins]]
 # repo = 'plasticboy/vim-markdown'
@@ -28,14 +28,14 @@ source ~/.config/nvim/plugins/coc.rc.vim
 # source ~/.config/nvim/plugins/vim-markdown.vim
 # '''
 
-[[plugins]]
-repo = 'joker1007/vim-markdown-quote-syntax'
-on_ft = ['markdown','md']
+# [[plugins]]
+# repo = 'joker1007/vim-markdown-quote-syntax'
+# on_ft = ['markdown','md']
 
-[[plugins]]
-repo = 'kannokanno/previm'
-on_ft = ['markdown','md']
+# [[plugins]]
+# repo = 'kannokanno/previm'
+# on_ft = ['markdown','md']
 
-[[plugins]]
-repo = 'iwataka/vim-markdown-ex'
-on_ft = ['markdown','md']
+# [[plugins]]
+# repo = 'iwataka/vim-markdown-ex'
+# on_ft = ['markdown','md']
