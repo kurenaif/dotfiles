@@ -1,7 +1,25 @@
 [[plugins]]
+repo = 'neoclide/coc.nvim'
+rev = 'release'
+merged = '0'
+hook_add = '''
+source ~/.config/nvim/plugins/coc.rc.vim
+'''
+
+[[plugins]]
 repo = 'thinca/vim-quickrun'
 hook_add = '''
 source ~/.config/nvim/plugins/quickrun.rc.vim
+'''
+
+[[plugins]]
+repo = 'Shougo/vimproc.vim'
+build = 'make'
+
+[[plugins]]
+repo = 'Shougo/defx.nvim'
+hook_add = '''
+source ~/.config/nvim/plugins/defx.rc.vim
 '''
 
 [[plugins]]
@@ -11,62 +29,4 @@ source ~/.config/nvim/plugins/denite.rc.vim
 '''
 
 [[plugins]]
-repo = 'tpope/vim-surround'
-
-[[plugins]]
-repo = 'airblade/vim-gitgutter'
-
-[[plugins]]
-repo = 'tpope/vim-fugitive'
-
-[[plugins]]
-repo = 'Shougo/vimproc.vim'
-build = 'make'
-
-[[plugins]]
-repo = 'tyru/caw.vim'
-hook_add = '''
-source ~/.config/nvim/plugins/caw.rc.vim
-'''
-
-[[plugins]]
-repo = 'cespare/vim-toml'
-
-[[plugins]]
-repo = 'Townk/vim-autoclose'
-
-[[plugins]]
-repo = 'Yggdroot/indentLine'
-hook_add = '''
-source ~/.config/nvim/plugins/indetLine.rc.vim
-'''
-
-[[plugins]]
-repo =  'Shougo/unite.vim'
-
-[[plugins]]
-repo = 'Shougo/vimfiler'
-
-[[plugins]]
-repo = 'Shougo/context_filetype.vim'
-
-[[plugins]]
-repo = 'osyo-manga/vim-precious'
-depends = ['context_filetype.vim']
-
-[[plugins]]
-repo = 'vim-scripts/Align'
-
-[[plugins]]
-repo = 'tyru/open-browser.vim'
-hook_add = '''
-source ~/.config/nvim/plugins/open-browser.rc.vim
-'''
-
-[[plugins]]
-repo = 'junegunn/vim-emoji'
-
-[[plugins]]
-repo = 'pocari/vim-denite-emoji'
-
-
+repo = 'tpope/vim-commentary'

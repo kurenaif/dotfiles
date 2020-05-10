@@ -5,80 +5,79 @@ set -ux
 git submodule update --init --recursive
 
 SCRIPT_DIR=$(cd $(dirname $0); pwd)
-# 
-# # install packages
-# 
-# packagelist=(
-#      "build-essential"
-#      "git"
-#      "vim"
-#      "ibus-mozc"
-#      "tmux"
-#      "fish"
-#      "htop"
-#      "cgdb"
-#      "guake"
-#      "nvim"
-#      "terminator"
-# 	 "curl"
-# 	 "python3-pip"
-# )
-# 
-# echo "start apt-get install apps..."
-# for list in ${packagelist[@]}; do
-#     sudo apt-get install -y ${list}
-# done
-# 
-# sudo apt-get update
-# sudo apt-get upgrade
-# 
-# # fish
-# mkdir -p ~/.config/fish/functions
-# # my-theme
-# ln -s ${SCRIPT_DIR}/fish_prompt.fish ~/.config/fish/functions 
-# ln -s ${SCRIPT_DIR}/informative_git_prompt/__informative_git_prompt.fish ~/.config/fish/functions 
-# # fisherman
-# curl -Lo ~/.config/fish/functions/fisher.fish --create-dirs git.io/fisherman
-# fisherman_list=(
-# 	"z"
-# 	"gitignore"
-# 	"tsu-nera/fish-peco_recentd"
-# 	"oh-my-fish/plugin-balias"
-# 	"oh-my-fish/plugin-peco"
-# 	"edc/bass"
-# )
-# echo "start fisherman install apps..."
-# for list in ${packagelist[@]}; do
-#     fisher ${list}
-# done
-# if [ -f ~/.config/fish/functions/fish_user_key_bindings.fish ];then
-# 	cp fish_user_key_bindings.fish fish_user_key_bindings.fish.bak
-# 	rm fish_user_key_bindings.fish 
-# fi
-# ln -s ${SCRIPT_DIR}/fish_user_key_bindings.fish ~/.config/fish/functions/
-# 
-# # git
-# ln -s ${SCRIPT_DIR}/.gitconfig ~/.gitconfig 
-# 
-# # vim
-# # ln -s ${SCRIPT_DIR}/.vimrc_minimum ~/.vimrc
-# # nvim
+
+# install packages
+
+packagelist=(
+     "build-essential"
+     "git"
+     "vim"
+     "ibus-mozc"
+     "tmux"
+     "fish"
+     "htop"
+     "cgdb"
+     "guake"
+     "nvim"
+     "terminator"
+     "curl"
+)
+
+echo "start apt-get install apps..."
+for list in ${packagelist[@]}; do
+    sudo apt-get install -y ${list}
+done
+
+sudo apt-get update
+sudo apt-get upgrade
+
+# fish
+mkdir -p ~/.config/fish/functions
+# my-theme
+ln -s ${SCRIPT_DIR}/fish_prompt.fish ~/.config/fish/functions 
+ln -s ${SCRIPT_DIR}/informative_git_prompt/__informative_git_prompt.fish ~/.config/fish/functions 
+# fisherman
+curl -Lo ~/.config/fish/functions/fisher.fish --create-dirs git.io/fisherman
+fisherman_list=(
+	"z"
+	"gitignore"
+	"tsu-nera/fish-peco_recentd"
+	"oh-my-fish/plugin-balias"
+	"oh-my-fish/plugin-peco"
+	"edc/bass"
+)
+echo "start fisherman install apps..."
+for list in ${packagelist[@]}; do
+    fisher ${list}
+done
+if [ -f ~/.config/fish/functions/fish_user_key_bindings.fish ];then
+	cp fish_user_key_bindings.fish fish_user_key_bindings.fish.bak
+	rm fish_user_key_bindings.fish 
+fi
+ln -s ${SCRIPT_DIR}/fish_user_key_bindings.fish ~/.config/fish/functions/
+
+# git
+ln -s ${SCRIPT_DIR}/.gitconfig ~/.gitconfig 
+
+# vim
+ln -s ${SCRIPT_DIR}/.vimrc_minimum ~/.vimrc
+# nvim
 # ln -s ${SCRIPT_DIR}/nvim ~/.config/nvim
 # 
-# # tmux
-# ln -s ${SCRIPT_DIR}/.tmux.conf ~/.tmux.conf
-# 
-# # terminator
-# ln -s ${SCRIPT_DIR}/terminator_config ~/.config/terminator/config
-# 
-# # bash
-# if [ ! -f ~/.bashrc.bak ];then
-# 	cp ~/.bashrc ~/.bashrc.bak
-# fi
-# cp ~/.bashrc.bak ~/.bashrc
-# echo "#-------my setting--------" >> ~/.bashrc
-# echo "source $SCRIPT_DIR/.bashrc" >> ~/.bashrc
+# tmux
+ln -s ${SCRIPT_DIR}/.tmux.conf ~/.tmux.conf
 
-# fzf
+# terminator
+ln -s ${SCRIPT_DIR}/terminator_config ~/.config/terminator/config
+
+# bash
+if [ ! -f ~/.bashrc.bak ];then
+	cp ~/.bashrc ~/.bashrc.bak
+fi
+cp ~/.bashrc.bak ~/.bashrc
+echo "#-------my setting--------" >> ~/.bashrc
+echo "source $SCRIPT_DIR/.bashrc" >> ~/.bashrc
+
+fzf
 ln -s ${SCRIPT_DIR}/fzf ~/.fzf
 yes | ~/.fzf/install
