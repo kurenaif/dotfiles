@@ -17,6 +17,11 @@ set number relativenumber
 set splitbelow
 let mapleader = ","
 
+" Change popup menu color for non selected items
+highlight Pmenu ctermfg=lightred ctermbg=black
+" Change popup menu color for selected item
+highlight PmenuSel ctermfg=white ctermbg=gray
+
 augroup auto_comment_off
     autocmd!
     autocmd BufEnter * setlocal formatoptions-=r
@@ -33,15 +38,15 @@ if &compatible
 endif
 
 " Required:
-set runtimepath+=/home/kurenaif/.cache/dein/repos/github.com/Shougo/dein.vim
+set runtimepath+=~/.cache/dein/repos/github.com/Shougo/dein.vim
 
 " Required:
-if dein#load_state('/home/kurenaif/.cache/dein')
-  call dein#begin('/home/kurenaif/.cache/dein')
+if dein#load_state('~/.cache/dein')
+  call dein#begin('~/.cache/dein')
 
   " Let dein manage dein
   " Required:
-  call dein#add('/home/kurenaif/.cache/dein/repos/github.com/Shougo/dein.vim')
+  call dein#add('~/.cache/dein/repos/github.com/Shougo/dein.vim')
 
   call dein#load_toml('~/.config/nvim/dein.toml', {'lazy' : 0})
   call dein#load_toml('~/.config/nvim/deinlazy.toml', {'lazy' : 1})
