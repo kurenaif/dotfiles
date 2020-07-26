@@ -13,7 +13,12 @@ function __user_host
 end
 
 function __current_path
-  echo -n (set_color --bold blue) (pwd) (set_color normal) 
+  set pwd_result (pwd)
+  if test (string length $pwd_result) -gt (math $COLUMNS - 10)
+	  echo -n (set_color --bold blue) (prompt_pwd) (set_color normal) 
+  else
+	  echo -n (set_color --bold blue) $pwd_result (set_color normal) 
+  end
 end
 
 function _git_branch_name
@@ -64,7 +69,7 @@ function fish_prompt
   end
 
   echo -n (set_color white)"╭─"(set_color normal)
-  __user_host
+#   __user_host
   __current_path
   __informative_git_prompt
   echo -e ''
