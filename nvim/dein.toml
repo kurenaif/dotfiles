@@ -30,3 +30,11 @@ source ~/.config/nvim/plugins/denite.rc.vim
 
 [[plugins]]
 repo = 'tpope/vim-commentary'
+
+[[plugins]]
+repo = 'autozimu/LanguageClient-neovim'
+rev = 'next'
+build = 'bash install.sh'
+
+[[plugins]]
+repo = 'jiangmiao/auto-pairs'
