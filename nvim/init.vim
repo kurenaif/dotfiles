@@ -66,3 +66,11 @@ syntax enable
 "endif
 
 "End dein Scripts-------------------------
+
+let g:LanguageClient_serverCommands = {
+    \ 'rust': ['rustup', 'run', 'stable', 'rls'],
+    \ 'go': ['/home/kurenaif/Desktop/tools/gopls/gopls', '-logfile', '/home/kurenaif/Desktop/tools/gopls/rpc.log', '-rpc.trace', '-debug', 'localhost:9090'],
+    \ }
+
+let g:LanguageClient_loggingLevel = "DEBUG"
+let g:LanguageClient_loggingFile = '/home/kurenaif/LanguageClient.log'

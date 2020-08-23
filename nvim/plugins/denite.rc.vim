@@ -1,6 +1,6 @@
-nnoremap <leader>f :<C-u>DeniteBufferDir file file:new<CR>
-nnoremap <leader>b :<C-u>Denite buffer<CR>
-nnoremap <leader>r :<C-u>Denite -buffer-name=register register<CR>
+" nnoremap <leader>f :<C-u>DeniteBufferDir file file:new<CR>
+" nnoremap <leader>b :<C-u>Denite buffer<CR>
+" nnoremap <leader>r :<C-u>Denite -buffer-name=register register<CR>
 
 " Define mappings
 autocmd FileType denite call s:denite_my_settings()

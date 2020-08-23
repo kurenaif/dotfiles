@@ -41,3 +41,20 @@ repo = 'jiangmiao/auto-pairs'
 
 [[plugins]]
 repo = 'tpope/vim-surround'
+
+[[plugins]]
+repo = 'heavenshell/vim-pydocstring'
+build = 'make install'
+hook_add = '''
+source ~/.config/nvim/plugins/vim-pydocstring.rc.vim
+'''
+
+[[plugins]]
+repo = 'junegunn/fzf'
+build = './install --all'
+ 
+[[plugins]]
+repo = 'junegunn/fzf.vim'
+hook_add = '''
+source ~/.config/nvim/plugins/fzf.rc.vim
+'''
