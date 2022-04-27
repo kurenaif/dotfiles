@@ -71,7 +71,7 @@ function fish_prompt
   echo -n (set_color white)"╭─"(set_color normal)
 #   __user_host
   __current_path
-  __informative_git_prompt
+  __fish_git_prompt
   echo -e ''
   echo (set_color white)"╰─"$status_face(set_color normal)
 end
